@@ -76,10 +76,10 @@ export function Navbar() {
         <a
           href="#contact"
           onClick={(e) => handleClick(e, "#contact")}
-          className={`hidden md:inline-flex px-7 py-3 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] transition-all duration-300 cursor-pointer ${
+          className={`hidden md:inline-flex px-7 py-3 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] transition-all duration-300 cursor-pointer rounded-lg ${
             scrolled
-              ? "bg-secondary text-on-secondary hover:bg-secondary/85"
-              : "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm"
+              ? "bg-secondary text-on-secondary hover:bg-secondary/85 shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
+              : "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
           }`}
         >
           Замовити проект
@@ -109,7 +109,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => handleClick(e, link.href)}
-              className="text-white hover:text-tertiary transition-colors duration-300 cursor-pointer font-[family-name:var(--font-headline)] text-[32px] font-medium py-3"
+              className="text-white hover:text-tertiary transition-colors duration-300 cursor-pointer font-[family-name:var(--font-headline)] text-[24px] font-medium py-3"
               style={{
                 transitionDelay: mobileOpen ? `${i * 80}ms` : "0ms",
                 opacity: mobileOpen ? 1 : 0,
@@ -123,7 +123,7 @@ export function Navbar() {
           <a
             href="#contact"
             onClick={(e) => handleClick(e, "#contact")}
-            className="mt-6 bg-white text-green-section px-10 py-4 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/90 transition-all duration-300 cursor-pointer"
+            className="mt-6 bg-white text-green-section px-10 py-4 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/90 transition-all duration-300 cursor-pointer rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
             style={{
               transitionDelay: mobileOpen ? `${navLinks.length * 80}ms` : "0ms",
               opacity: mobileOpen ? 1 : 0,
