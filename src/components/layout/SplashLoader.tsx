@@ -11,14 +11,14 @@ export function SplashLoader() {
 
     const barTimer = setInterval(() => {
       const elapsed = Date.now() - startTime;
-      const pct = Math.min(100, (elapsed / 3000) * 100);
+      const pct = Math.min(100, (elapsed / 2000) * 100);
       setBar(pct);
     }, 30);
 
     const hideTimer = setTimeout(() => {
       clearInterval(barTimer);
       setHidden(true);
-    }, 3000);
+    }, 2000);
 
     return () => {
       clearTimeout(hideTimer);
