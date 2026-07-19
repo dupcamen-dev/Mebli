@@ -33,7 +33,7 @@ export function Philosophy() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="group p-12 bg-white border border-outline-variant/50 rounded-lg transition-all duration-500 hover:border-secondary/30 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)]"
+              className="group p-12 bg-white/60 backdrop-blur-lg border border-outline-variant/50 rounded-lg transition-all duration-500 hover:border-secondary/30 hover:bg-white/80 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)]"
             >
               <span
                 className="material-symbols-outlined text-[36px] text-secondary mb-8 block"

@@ -59,7 +59,7 @@ export function Reviews() {
             {reviews.map((review) => (
               <div
                 key={review.name}
-                className="p-10 bg-white border border-outline-variant/50 rounded-lg flex flex-col transition-all duration-500 hover:border-secondary/30 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)]"
+                className="p-10 bg-white/60 backdrop-blur-lg border border-outline-variant/50 rounded-lg flex flex-col transition-all duration-500 hover:border-secondary/30 hover:bg-white/80 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)]"
               >
                 <div className="flex gap-1 mb-6">
                   {Array.from({ length: 5 }).map((_, i) => (
