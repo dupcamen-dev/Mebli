@@ -11,11 +11,11 @@ export function Story() {
           </h2>
         </div>
 
-        <div className="relative mb-20 overflow-hidden">
+        <div className="relative mb-20 overflow-hidden rounded-lg">
           <img
             src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=1400&q=80&auto=format&fit=crop"
             alt="Майстерня Mebli Chortkiv"
-            className="w-full h-[320px] md:h-[520px] object-cover"
+            className="w-full h-[320px] md:h-[520px] object-cover rounded-lg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-green-section via-green-section/30 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-10 md:p-14">
@@ -33,7 +33,7 @@ export function Story() {
             <img
               src="https://images.unsplash.com/photo-1541123603104-512919d6a96c?w=800&q=80&auto=format&fit=crop"
               alt="Ручна робота над меблями"
-              className="w-full h-72 md:h-96 object-cover mb-8"
+              className="w-full h-72 md:h-96 object-cover rounded-lg mb-8"
             />
             <div className="flex gap-10">
               <div>
