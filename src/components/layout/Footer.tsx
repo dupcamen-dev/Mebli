@@ -94,6 +94,9 @@ export function Footer() {
             <p className="text-[14px] text-inverse-on-surface/30">
               &copy; {new Date().getFullYear()} Mebli Chortkiv. Всі права захищені.
             </p>
+            <p className="text-[14px] text-inverse-on-surface/30 mt-3">
+              <a href="https://millionpixels.dev" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">Designed &amp; Built by Million Pixels</a>
+            </p>
           </div>
         </div>
       </div>
