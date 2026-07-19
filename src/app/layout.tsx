@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { SplashLoader } from "@/components/layout/SplashLoader";
 
 const inter = Inter({
   variable: "--font-body",
@@ -65,6 +66,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        <SplashLoader />
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
