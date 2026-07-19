@@ -51,7 +51,7 @@ export function SplashLoader() {
     >
       <div className="flex flex-col items-center gap-8">
         <div className="font-[family-name:var(--font-headline)] text-[28px] font-semibold tracking-tight text-primary">
-          Mebli Chortciv
+          Mebli Chortkiv
         </div>
 
         <div className="w-[240px] h-[2px] bg-surface-container-high overflow-hidden">

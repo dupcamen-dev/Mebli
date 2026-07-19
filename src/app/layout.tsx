@@ -28,8 +28,8 @@ const greatVibes = Great_Vibes({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mebli Chortciv — меблі за вашим характером",
-    template: "%s | Mebli Chortciv",
+    default: "Mebli Chortkiv — меблі за вашим характером",
+    template: "%s | Mebli Chortkiv",
   },
   description:
     "Виготовлення преміальних меблів за індивідуальним проектом у Чорткові. Сучасний мінімалізм, натуральне дерево, бездоганна якість.",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     "преміум меблі",
   ],
   openGraph: {
-    title: "Mebli Chortciv — меблі за вашим характером",
+    title: "Mebli Chortkiv — меблі за вашим характером",
     description:
       "Виготовлення преміальних меблів за індивідуальним проектом. Мінімалізм та якість.",
     locale: "uk_UA",

@@ -45,10 +45,10 @@ export function Contact() {
                   Email
                 </span>
                 <a
-                  href="mailto:info@mebli-chortciv.ua"
+                  href="mailto:info@mebli-chortkiv.ua"
                   className="text-[16px] leading-[1.6] text-on-surface hover:text-secondary transition-colors duration-300"
                 >
-                  info@mebli-chortciv.ua
+                  info@mebli-chortkiv.ua
                 </a>
               </div>
               <div>

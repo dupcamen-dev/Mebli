@@ -53,7 +53,7 @@ export function Navbar() {
             mobileOpen ? "text-white" : scrolled ? "text-primary" : "text-white"
           }`}
         >
-          Mebli Chortciv
+          Mebli Chortkiv
         </Link>
 
         <div className="hidden md:flex gap-10 items-center">

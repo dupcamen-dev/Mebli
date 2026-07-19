@@ -14,14 +14,14 @@ export function Story() {
         <div className="relative mb-20 overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=1400&q=80&auto=format&fit=crop"
-            alt="Майстерня Mebli Chortciv"
+            alt="Майстерня Mebli Chortkiv"
             className="w-full h-[320px] md:h-[520px] object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-green-section via-green-section/30 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-10 md:p-14">
             <p className="text-[17px] md:text-[19px] leading-[1.8] text-white/90 max-w-2xl">
               Заснована з пристрасті до природних матеріалів та архітектурної
-              чистоти, Mebli Chortciv починалася як невелика майстерня. Ми
+              чистоти, Mebli Chortkiv починалася як невелика майстерня. Ми
               вірили, що справжня розкіш полягає у простоті та бездоганному
               виконанні.
             </p>

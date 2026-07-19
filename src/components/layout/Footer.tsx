@@ -15,7 +15,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-14">
           <div className="md:col-span-5">
             <div className="font-[family-name:var(--font-headline)] text-[26px] font-medium text-white mb-5">
-              Mebli Chortciv
+              Mebli Chortkiv
             </div>
             <p className="text-[16px] leading-[1.7] text-inverse-on-surface/60 max-w-sm mb-10">
               Виготовлення меблів за індивідуальним проектом. Створюємо простір,
@@ -92,7 +92,7 @@ export function Footer() {
               </li>
             </ul>
             <p className="text-[14px] text-inverse-on-surface/30">
-              &copy; {new Date().getFullYear()} Mebli Chortciv. Всі права захищені.
+              &copy; {new Date().getFullYear()} Mebli Chortkiv. Всі права захищені.
             </p>
           </div>
         </div>
