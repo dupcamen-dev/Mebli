@@ -14,16 +14,16 @@ export function Hero() {
 
       <div className="relative z-10 max-w-[1600px] mx-auto px-5 md:px-8 text-center">
         <div className="animate-fade-up">
-          <span className="inline-block text-white/60 text-[11px] md:text-[15px] font-bold uppercase tracking-[0.25em] font-[family-name:var(--font-body)] mb-8">
+          <span className="inline-block text-white/60 text-[10px] md:text-[13px] font-bold uppercase tracking-[0.25em] font-[family-name:var(--font-body)] mb-8">
             Виготовлення меблів на замовлення
           </span>
         </div>
-        <h1 className="font-[family-name:var(--font-headline)] text-[30px] md:text-[76px] lg:text-[88px] font-medium leading-[1.05] tracking-[-0.02em] text-white max-w-5xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+        <h1 className="font-[family-name:var(--font-headline)] text-[26px] md:text-[56px] lg:text-[68px] font-medium leading-[1.05] tracking-[-0.02em] text-white max-w-5xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           Меблі, створені
           <br />
-          <span className="font-[family-name:var(--font-script)] text-[34px] md:text-[84px] lg:text-[100px] font-normal" style={{ color: "#9c8a41" }}>вашим характером</span>
+          <span className="font-[family-name:var(--font-script)] text-[30px] md:text-[60px] lg:text-[78px] font-normal" style={{ color: "#9c8a41" }}>вашим характером</span>
         </h1>
-        <p className="text-[13px] md:text-[20px] leading-[1.7] text-white/75 max-w-xl mx-auto mb-14 animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <p className="text-[12px] md:text-[17px] leading-[1.7] text-white/75 max-w-xl mx-auto mb-14 animate-fade-up" style={{ animationDelay: "0.2s" }}>
           Преміальне виготовлення за індивідуальним проектом. Поєднуємо
           натуральне дерево з сучасним дизайном для вашого простору.
         </p>
@@ -34,7 +34,7 @@ export function Hero() {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center justify-center bg-white text-primary px-12 py-5 text-[12px] md:text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/90 transition-all duration-300 cursor-pointer rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
+            className="inline-flex items-center justify-center bg-white text-primary px-12 py-5 text-[11px] md:text-[13px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/90 transition-all duration-300 cursor-pointer rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
           >
             Замовити проект
           </a>
@@ -44,7 +44,7 @@ export function Hero() {
               e.preventDefault();
               document.getElementById("process")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center justify-center bg-transparent text-white border border-white/30 px-12 py-5 text-[12px] md:text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/10 transition-all duration-300 cursor-pointer rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+            className="inline-flex items-center justify-center bg-transparent text-white border border-white/30 px-12 py-5 text-[11px] md:text-[13px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/10 transition-all duration-300 cursor-pointer rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
           >
             Наш процес
           </a>
