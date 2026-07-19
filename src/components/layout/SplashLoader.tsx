@@ -1,44 +1,34 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export function SplashLoader() {
   const [fading, setFading] = useState(false);
   const [hidden, setHidden] = useState(true);
   const [bar, setBar] = useState(0);
-  const mountedAt = useRef(Date.now());
 
   useEffect(() => {
+    const startTime = Date.now();
+
     const barTimer = setInterval(() => {
-      const elapsed = Date.now() - mountedAt.current;
-      const pct = Math.min(70, (elapsed / 3000) * 70);
+      const elapsed = Date.now() - startTime;
+      const pct = Math.min(100, (elapsed / 3000) * 100);
       setBar(pct);
     }, 30);
 
-    const img = new Image();
-    img.src = "/hero.webp";
+    const fadeTimer = setTimeout(() => {
+      clearInterval(barTimer);
+      setBar(100);
+      setFading(true);
+    }, 3000);
 
-    const hide = () => {
-      const elapsed = Date.now() - mountedAt.current;
-      const remaining = Math.max(0, 3000 - elapsed);
-      setTimeout(() => {
-        setBar(100);
-        setFading(true);
-      }, remaining);
-      setTimeout(() => setHidden(false), remaining + 500);
-    };
-
-    if (img.complete) {
-      hide();
-    } else {
-      img.addEventListener("load", hide);
-    }
-
-    const fallback = setTimeout(hide, 6000);
+    const hideTimer = setTimeout(() => {
+      setHidden(false);
+    }, 3500);
 
     return () => {
-      img.removeEventListener("load", hide);
-      clearTimeout(fallback);
+      clearTimeout(fadeTimer);
+      clearTimeout(hideTimer);
       clearInterval(barTimer);
     };
   }, []);
@@ -58,7 +48,7 @@ export function SplashLoader() {
 
         <div className="w-[240px] h-[2px] bg-surface-container-high overflow-hidden">
           <div
-            className="h-full bg-secondary transition-all duration-500 ease-out"
+            className="h-full bg-secondary transition-[width] duration-300 ease-out"
             style={{ width: `${bar}%` }}
           />
         </div>
