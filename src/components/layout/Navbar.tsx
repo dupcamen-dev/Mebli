@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { AuthButton } from "@/components/layout/AuthButton";
 
 const navLinks = [
   { href: "#process", label: "Процес" },
@@ -84,6 +85,8 @@ export function Navbar() {
         >
           Замовити проект
         </a>
+
+        <AuthButton />
 
         <button
           className="md:hidden transition-colors text-white relative z-[61]"

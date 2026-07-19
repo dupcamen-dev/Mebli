@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { SplashLoader } from "@/components/layout/SplashLoader";
 import { CookieConsent } from "@/components/layout/CookieConsent";
+import { AuthProvider } from "@/components/layout/AuthProvider";
 
 const inter = Inter({
   variable: "--font-body",
@@ -67,12 +68,14 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        <AuthProvider>
         <SplashLoader />
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
         <ScrollToTop />
         <CookieConsent />
+        </AuthProvider>
       </body>
     </html>
   );
