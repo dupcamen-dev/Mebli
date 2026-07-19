@@ -1,0 +1,549 @@
+▲ Next.js 16.2.10 (webpack)
+- Local:         http://localhost:3000
+- Network:       http://172.16.0.2:3000
+✓ Ready in 1231ms
+
+ GET / 200 in 3.0s (next.js: 2.7s, application-code: 311ms)
+ GET /reviews 200 in 1014ms (next.js: 895ms, application-code: 119ms)
+ GET /about 200 in 968ms (next.js: 858ms, application-code: 110ms)
+ GET / 200 in 897ms (next.js: 787ms, application-code: 110ms)
+ GET /contact 200 in 671ms (next.js: 618ms, application-code: 53ms)
+ GET / 200 in 198ms (next.js: 12ms, application-code: 186ms)
+⨯ ./src/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/sections/Categories'
+  3 | import { Story } from "@/components/sections/Story";
+  4 | import { Philosophy } from "@/components/sections/Philosophy";
+> 5 | import { Categories } from "@/components/sections/Categories";
+    | ^
+  6 | import { Reviews } from "@/components/sections/Reviews";
+  7 | import { Contact } from "@/components/sections/Contact";
+  8 | import { CTA } from "@/components/sections/CTA";
+
+https://nextjs.org/docs/messages/module-not-found
+⨯ ./src/app/page.tsx:5:1
+Module not found: Can't resolve '@/components/sections/Categories'
+  3 | import { Story } from "@/components/sections/Story";
+  4 | import { Philosophy } from "@/components/sections/Philosophy";
+> 5 | import { Categories } from "@/components/sections/Categories";
+    | ^
+  6 | import { Reviews } from "@/components/sections/Reviews";
+  7 | import { Contact } from "@/components/sections/Contact";
+  8 | import { CTA } from "@/components/sections/CTA";
+
+https://nextjs.org/docs/messages/module-not-found
+ GET /contact 500 in 5.8s (next.js: 5.5s, application-code: 298ms)
+ GET /contact 500 in 23ms (next.js: 7ms, application-code: 16ms)
+ GET /contact 500 in 41ms (next.js: 6ms, application-code: 35ms)
+ GET /contact 500 in 40ms (next.js: 6ms, application-code: 34ms)
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+○ Compiling /_error ...
+[browser] Uncaught Error: Module not found: Can't resolve '@/components/sections/Categories'
+  3 | import { Story } from "@/components/sections/Story";
+  4 | import { Philosophy } from "@/components/sections/Philosophy";
+> 5 | import { Categories } from "@/components/sections/Categories";
+    | ^
+  6 | import { Reviews } from "@/components/sections/Reviews";
+  7 | import { Contact } from "@/components/sections/Contact";
+  8 | import { CTA } from "@/components/sections/CTA";
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⨯ ./src/app/page.tsx:6:1
+Module not found: Can't resolve '@/components/sections/Reviews'
+  4 | import { Philosophy } from "@/components/sections/Philosophy";
+  5 | import { Categories } from "@/components/sections/Categories";
+> 6 | import { Reviews } from "@/components/sections/Reviews";
+    | ^
+  7 | import { Contact } from "@/components/sections/Contact";
+  8 | import { CTA } from "@/components/sections/CTA";
+  9 |
+
+https://nextjs.org/docs/messages/module-not-found
+ GET /contact 500 in 231ms (next.js: 190ms, application-code: 41ms)
+ GET /contact 500 in 20ms (next.js: 6ms, application-code: 14ms)
+[browser] Uncaught Error: Module not found: Can't resolve '@/components/sections/Reviews'
+  4 | import { Philosophy } from "@/components/sections/Philosophy";
+  5 | import { Categories } from "@/components/sections/Categories";
+> 6 | import { Reviews } from "@/components/sections/Reviews";
+    | ^
+  7 | import { Contact } from "@/components/sections/Contact";
+  8 | import { CTA } from "@/components/sections/CTA";
+  9 |
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⨯ ./src/app/page.tsx:7:1
+Module not found: Can't resolve '@/components/sections/Contact'
+   5 | import { Categories } from "@/components/sections/Categories";
+   6 | import { Reviews } from "@/components/sections/Reviews";
+>  7 | import { Contact } from "@/components/sections/Contact";
+     | ^
+   8 | import { CTA } from "@/components/sections/CTA";
+   9 |
+  10 | export default function Home() {
+
+https://nextjs.org/docs/messages/module-not-found
+ GET /contact 500 in 251ms (next.js: 189ms, application-code: 61ms)
+ GET /contact 500 in 20ms (next.js: 6ms, application-code: 14ms)
+[browser] Uncaught Error: Module not found: Can't resolve '@/components/sections/Contact'
+   5 | import { Categories } from "@/components/sections/Categories";
+   6 | import { Reviews } from "@/components/sections/Reviews";
+>  7 | import { Contact } from "@/components/sections/Contact";
+     | ^
+   8 | import { CTA } from "@/components/sections/CTA";
+   9 |
+  10 | export default function Home() {
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+[browser] ./src/app/page.tsx:7:1
+Module not found: Can't resolve '@/components/sections/Contact'
+   5 | import { Categories } from "@/components/sections/Categories";
+   6 | import { Reviews } from "@/components/sections/Reviews";
+>  7 | import { Contact } from "@/components/sections/Contact";
+     | ^
+   8 | import { CTA } from "@/components/sections/CTA";
+   9 |
+  10 | export default function Home() {
+
+https://nextjs.org/docs/messages/module-not-found 
+ GET /contact 500 in 25ms (next.js: 8ms, application-code: 17ms)
+[browser] Uncaught Error: Module not found: Can't resolve '@/components/sections/Contact'
+   5 | import { Categories } from "@/components/sections/Categories";
+   6 | import { Reviews } from "@/components/sections/Reviews";
+>  7 | import { Contact } from "@/components/sections/Contact";
+     | ^
+   8 | import { CTA } from "@/components/sections/CTA";
+   9 |
+  10 | export default function Home() {
+
+https://nextjs.org/docs/messages/module-not-found
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+[browser] ./src/app/page.tsx:7:1
+Module not found: Can't resolve '@/components/sections/Contact'
+   5 | import { Categories } from "@/components/sections/Categories";
+   6 | import { Reviews } from "@/components/sections/Reviews";
+>  7 | import { Contact } from "@/components/sections/Contact";
+     | ^
+   8 | import { CTA } from "@/components/sections/CTA";
+   9 |
+  10 | export default function Home() {
+
+https://nextjs.org/docs/messages/module-not-found 
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /contact 200 in 673ms (next.js: 404ms, application-code: 269ms)
+ GET /contact 200 in 86ms (next.js: 6ms, application-code: 81ms)
+ GET / 200 in 96ms (next.js: 20ms, application-code: 76ms)
+ GET /contact 200 in 40ms (next.js: 6ms, application-code: 34ms)
+ GET /contact 200 in 238ms (next.js: 156ms, application-code: 82ms)
+ GET / 200 in 102ms (next.js: 20ms, application-code: 82ms)
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1381335302'
+}
+ GET / 200 in 642ms (next.js: 128ms, application-code: 514ms)
+[browser] Uncaught Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at Home (src\app\page.tsx:20:7)
+  18 |       <Reviews />
+  19 |       <Contact />
+> 20 |       <CTA />
+     |       ^
+  21 |     </>
+  22 |   );
+  23 | }
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1381335302'
+}
+ GET / 500 in 629ms (next.js: 5ms, application-code: 624ms)
+[browser] Uncaught Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at Home (src\app\page.tsx:20:7)
+  18 |       <Reviews />
+  19 |       <Contact />
+> 20 |       <CTA />
+     |       ^
+  21 |     </>
+  22 |   );
+  23 | }
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1381335302'
+}
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 500 in 570ms (next.js: 63ms, application-code: 507ms)
+[browser] Uncaught Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at Home (src\app\page.tsx:20:7)
+  18 |       <Reviews />
+  19 |       <Contact />
+> 20 |       <CTA />
+     |       ^
+  21 |     </>
+  22 |   );
+  23 | }
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1381335302'
+}
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1381335302'
+}
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1381335302'
+}
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1381335302'
+}
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1381335302'
+}
+ GET / 200 in 2.5s (next.js: 8ms, application-code: 2.5s)
+ GET / 200 in 2.1s (next.js: 5ms, application-code: 2.1s)
+ GET / 200 in 1634ms (next.js: 5ms, application-code: 1629ms)
+ GET / 200 in 1288ms (next.js: 5ms, application-code: 1283ms)
+ GET / 200 in 890ms (next.js: 5ms, application-code: 885ms)
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1189390185'
+}
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1189390185'
+}
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1189390185'
+}
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1189390185'
+}
+⨯ Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '1381335302'
+}
+ GET / 200 in 2.8s (next.js: 652ms, application-code: 2.2s)
+ GET / 200 in 2.9s (next.js: 692ms, application-code: 2.2s)
+ GET / 200 in 2.8s (next.js: 631ms, application-code: 2.2s)
+ GET / 200 in 2.8s (next.js: 646ms, application-code: 2.2s)
+ GET / 500 in 617ms (next.js: 5ms, application-code: 611ms)
+[browser] Uncaught Error: Event handlers cannot be passed to Client Component props.
+  <a href=... onClick={function onClick} className=... children=...>
+                      ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at stringify (<anonymous>:1:18)
+    at Home (src\app\page.tsx:20:7)
+  18 |       <Reviews />
+  19 |       <Contact />
+> 20 |       <CTA />
+     |       ^
+  21 |     </>
+  22 |   );
+  23 | }
+⨯ Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\app-paths-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\server\\app-paths-manifest.json',
+  page: '/'
+}
+⨯ Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\pages-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\server\\pages-manifest.json'
+}
+Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\app-paths-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\server\\app-paths-manifest.json',
+  page: '/'
+}
+⨯ Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\pages-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\server\\pages-manifest.json'
+}
+Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\routes-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\routes-manifest.json'
+}
+ GET / 500 in 187ms (next.js: 155ms, application-code: 31ms)
+ GET / 500 in 187ms (next.js: 155ms, application-code: 32ms)
+⨯ Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\app-paths-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\server\\app-paths-manifest.json',
+  page: '/'
+}
+⨯ Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\pages-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\server\\pages-manifest.json'
+}
+Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\app-paths-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\server\\app-paths-manifest.json',
+  page: '/'
+}
+⨯ Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\pages-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\server\\pages-manifest.json'
+}
+Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\routes-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\routes-manifest.json'
+}
+ GET / 500 in 151ms (next.js: 127ms, application-code: 24ms)
+ GET / 500 in 151ms (next.js: 127ms, application-code: 24ms)
+⨯ Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\routes-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\routes-manifest.json',
+  page: '/'
+}
+⨯ Error: Cannot find module 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\pages\_document.js'
+Require stack:
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\require.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\load-components.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\build\utils.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\router-server.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\start-server.js
+    at ignore-listed frames {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\require.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\load-components.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\build\\utils.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\routes-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\routes-manifest.json',
+  page: '/'
+}
+⨯ Error: Cannot find module 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\pages\_document.js'
+Require stack:
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\require.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\load-components.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\build\utils.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\router-server.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\start-server.js
+    at ignore-listed frames {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\require.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\load-components.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\build\\utils.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\routes-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\routes-manifest.json'
+}
+ GET / 500 in 958ms (next.js: 936ms, application-code: 22ms)
+ GET / 500 in 958ms (next.js: 936ms, application-code: 22ms)
+⨯ Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\routes-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\routes-manifest.json',
+  page: '/'
+}
+⨯ Error: Cannot find module 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\pages\_document.js'
+Require stack:
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\require.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\load-components.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\build\utils.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\router-server.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\start-server.js
+    at ignore-listed frames {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\require.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\load-components.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\build\\utils.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\routes-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\routes-manifest.json',
+  page: '/'
+}
+⨯ Error: Cannot find module 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\server\pages\_document.js'
+Require stack:
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\require.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\load-components.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\build\utils.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\router-server.js
+- D:\Desktop\меблі чортків\mebli-chortciv\node_modules\next\dist\server\lib\start-server.js
+    at ignore-listed frames {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\require.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\load-components.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\build\\utils.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\router-utils\\setup-dev-bundler.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\router-server.js',
+    'D:\\Desktop\\меблі чортків\\mebli-chortciv\\node_modules\\next\\dist\\server\\lib\\start-server.js'
+  ]
+}
+Error: ENOENT: no such file or directory, open 'D:\Desktop\меблі чортків\mebli-chortciv\.next\dev\routes-manifest.json'
+    at ignore-listed frames {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Desktop\\меблі чортків\\mebli-chortciv\\.next\\dev\\routes-manifest.json'
+}
+ GET / 500 in 709ms (next.js: 688ms, application-code: 21ms)
+ GET / 500 in 709ms (next.js: 688ms, application-code: 21ms)
