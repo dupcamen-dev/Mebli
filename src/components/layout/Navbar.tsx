@@ -20,19 +20,28 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const el = document.getElementById(href.slice(1));
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-      setMobileOpen(false);
-    }
+    setMobileOpen(false);
+    setTimeout(() => {
+      const el = document.getElementById(href.slice(1));
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 300);
   };
 
   return (
     <header
       className={`w-full fixed top-0 z-50 transition-all duration-500 ${
-        scrolled
+        scrolled && !mobileOpen
           ? "bg-background/90 backdrop-blur-xl shadow-[0_1px_0_0_var(--color-outline-variant)]"
           : "bg-transparent"
       }`}
@@ -40,8 +49,8 @@ export function Navbar() {
       <nav className="flex justify-between items-center max-w-[1600px] mx-auto px-5 md:px-8 h-[76px]">
         <Link
           href="/"
-          className={`font-[family-name:var(--font-headline)] text-[24px] font-semibold tracking-tight transition-colors duration-500 ${
-            scrolled ? "text-primary" : "text-white"
+          className={`font-[family-name:var(--font-headline)] text-[24px] font-semibold tracking-tight transition-colors duration-500 relative z-[61] ${
+            mobileOpen ? "text-white" : scrolled ? "text-primary" : "text-white"
           }`}
         >
           Mebli Chortciv
@@ -77,7 +86,7 @@ export function Navbar() {
         </a>
 
         <button
-          className={`md:hidden transition-colors ${scrolled ? "text-primary" : "text-white"}`}
+          className="md:hidden transition-colors text-white relative z-[61]"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Меню"
         >
@@ -87,29 +96,45 @@ export function Navbar() {
         </button>
       </nav>
 
-      {mobileOpen && (
-        <div className="md:hidden border-t border-outline-variant bg-background/95 backdrop-blur-xl">
-          <div className="flex flex-col px-8 py-8 gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
-                className="text-on-surface-variant hover:text-secondary hover:bg-surface-container-low transition-all py-3.5 px-5 cursor-pointer text-[16px]"
-              >
-                {link.label}
-              </a>
-            ))}
+      <div
+        className={`md:hidden fixed inset-0 top-0 bg-green-section transition-all duration-500 ease-in-out ${
+          mobileOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="flex flex-col justify-center items-center h-full px-8 gap-2">
+          {navLinks.map((link, i) => (
             <a
-              href="#contact"
-              onClick={(e) => handleClick(e, "#contact")}
-              className="mt-4 bg-secondary text-on-secondary px-7 py-4 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] text-center hover:bg-secondary/85 transition-colors cursor-pointer"
+              key={link.href}
+              href={link.href}
+              onClick={(e) => handleClick(e, link.href)}
+              className="text-white hover:text-tertiary transition-colors duration-300 cursor-pointer font-[family-name:var(--font-headline)] text-[32px] font-medium py-3"
+              style={{
+                transitionDelay: mobileOpen ? `${i * 80}ms` : "0ms",
+                opacity: mobileOpen ? 1 : 0,
+                transform: mobileOpen ? "translateY(0)" : "translateY(20px)",
+                transition: "opacity 0.4s ease, transform 0.4s ease, color 0.3s ease",
+              }}
             >
-              Замовити проект
+              {link.label}
             </a>
-          </div>
+          ))}
+          <a
+            href="#contact"
+            onClick={(e) => handleClick(e, "#contact")}
+            className="mt-6 bg-white text-green-section px-10 py-4 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/90 transition-all duration-300 cursor-pointer"
+            style={{
+              transitionDelay: mobileOpen ? `${navLinks.length * 80}ms` : "0ms",
+              opacity: mobileOpen ? 1 : 0,
+              transform: mobileOpen ? "translateY(0)" : "translateY(20px)",
+              transition: "opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease",
+            }}
+          >
+            Замовити проект
+          </a>
         </div>
-      )}
+      </div>
     </header>
   );
 }
