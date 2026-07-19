@@ -34,7 +34,7 @@ export function Hero() {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center justify-center bg-white/15 text-white border border-white/30 px-12 py-5 text-[12px] md:text-[13px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/25 backdrop-blur-md transition-all duration-300 cursor-pointer rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
+            className="inline-flex items-center justify-center bg-white text-primary px-12 py-5 text-[12px] md:text-[13px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/90 transition-all duration-300 cursor-pointer rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
           >
             Замовити проект
           </a>
