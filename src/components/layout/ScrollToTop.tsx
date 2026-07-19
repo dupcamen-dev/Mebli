@@ -14,14 +14,28 @@ export function ScrollToTop() {
   if (!visible) return null;
 
   return (
-    <button
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-8 right-8 z-50 w-12 h-12 flex items-center justify-center bg-tertiary text-on-tertiary shadow-[0_4px_20px_rgba(0,0,0,0.25)] rounded-full hover:bg-tertiary/85 transition-all duration-300 cursor-pointer"
-      aria-label="Нагору"
-    >
-      <span className="material-symbols-outlined text-[22px]">
-        arrow_upward
-      </span>
-    </button>
+    <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-3">
+      <button
+        onClick={() => {
+          const el = document.getElementById("contact");
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }}
+        className="w-12 h-12 flex items-center justify-center bg-secondary text-on-secondary shadow-[0_4px_20px_rgba(0,0,0,0.25)] rounded-full hover:bg-secondary/85 transition-all duration-300 cursor-pointer"
+        aria-label="Контакти"
+      >
+        <span className="material-symbols-outlined text-[22px]">
+          chat
+        </span>
+      </button>
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="w-12 h-12 flex items-center justify-center bg-tertiary text-on-tertiary shadow-[0_4px_20px_rgba(0,0,0,0.25)] rounded-full hover:bg-tertiary/85 transition-all duration-300 cursor-pointer"
+        aria-label="Нагору"
+      >
+        <span className="material-symbols-outlined text-[22px]">
+          arrow_upward
+        </span>
+      </button>
+    </div>
   );
 }
