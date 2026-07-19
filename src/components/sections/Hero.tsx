@@ -21,8 +21,8 @@ export function Hero() {
         <h1 className="font-[family-name:var(--font-headline)] text-[30px] md:text-[56px] lg:text-[68px] font-medium leading-[1.05] tracking-[-0.02em] text-white max-w-5xl mx-auto mb-10 animate-fade-up" style={{ animationDelay: "0.1s" }}>
           Меблі, створені
           <br />
-          <span className="font-[family-name:var(--font-script)] text-[34px] md:text-[60px] lg:text-[78px] font-normal" style={{ color: "#9c8a41" }}>Вашим</span>{" "}
-          <span className="font-[family-name:var(--font-headline)] text-[34px] md:text-[60px] lg:text-[78px] font-medium text-white">характером</span>
+          <span className="font-[family-name:var(--font-script)] text-[38px] md:text-[66px] lg:text-[82px] font-normal" style={{ color: "#9c8a41" }}>Вашим</span>{" "}
+          <span className="font-[family-name:var(--font-headline)] text-[30px] md:text-[56px] lg:text-[68px] font-medium text-white">характером</span>
         </h1>
         <p className="text-[13px] md:text-[17px] leading-[1.7] text-white/75 max-w-xl mx-auto mb-14 animate-fade-up" style={{ animationDelay: "0.2s" }}>
           Преміальне виготовлення за індивідуальним проектом. Поєднуємо
