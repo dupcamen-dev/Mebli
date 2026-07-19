@@ -70,7 +70,7 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="bg-white p-10 md:p-12 border border-outline-variant/50">
+          <div className="bg-white p-10 md:p-12 border border-outline-variant/50 rounded-lg">
             <form className="space-y-8">
               <div>
                 <label

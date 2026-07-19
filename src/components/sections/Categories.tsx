@@ -54,7 +54,7 @@ export function Categories() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((cat) => (
             <div key={cat.title} className="group cursor-pointer">
-              <div className="aspect-[4/3] overflow-hidden mb-6">
+              <div className="aspect-[4/3] overflow-hidden mb-6 rounded-lg">
                 <img
                   src={cat.image}
                   alt={cat.title}
