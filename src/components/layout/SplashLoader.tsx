@@ -1,52 +1,43 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function SplashLoader() {
-  const [visible, setVisible] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const [fading, setFading] = useState(false);
+  const [hidden, setHidden] = useState(true);
+  const mountedAt = useRef(Date.now());
 
   useEffect(() => {
     const img = new Image();
     img.src = "/hero.webp";
 
-    const steps = [
-      { target: 40, delay: 150 },
-      { target: 65, delay: 400 },
-      { target: 80, delay: 700 },
-    ];
-
-    const timers: ReturnType<typeof setTimeout>[] = [];
-
-    steps.forEach(({ target, delay }) => {
-      timers.push(setTimeout(() => setProgress(target), delay));
-    });
-
-    const onLoad = () => {
-      setProgress(100);
-      timers.push(setTimeout(() => setVisible(false), 600));
+    const hide = () => {
+      const elapsed = Date.now() - mountedAt.current;
+      const remaining = Math.max(0, 500 - elapsed);
+      setTimeout(() => setFading(true), remaining);
+      setTimeout(() => setHidden(false), remaining + 500);
     };
 
     if (img.complete) {
-      onLoad();
+      hide();
     } else {
-      img.addEventListener("load", onLoad);
+      img.addEventListener("load", hide);
     }
 
-    timers.push(setTimeout(onLoad, 4000));
+    const fallback = setTimeout(hide, 5000);
 
     return () => {
-      img.removeEventListener("load", onLoad);
-      timers.forEach(clearTimeout);
+      img.removeEventListener("load", hide);
+      clearTimeout(fallback);
     };
   }, []);
 
-  if (!visible) return null;
+  if (hidden) return null;
 
   return (
     <div
       className={`fixed inset-0 z-[200] flex flex-col items-center justify-center bg-background transition-opacity duration-500 ${
-        progress >= 100 ? "opacity-0 pointer-events-none" : "opacity-100"
+        fading ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
       <div className="flex flex-col items-center gap-8">
@@ -56,8 +47,8 @@ export function SplashLoader() {
 
         <div className="w-[240px] h-[2px] bg-surface-container-high overflow-hidden">
           <div
-            className="h-full bg-secondary transition-all duration-700 ease-out"
-            style={{ width: `${progress}%` }}
+            className="h-full bg-secondary transition-all duration-[1200ms] ease-out"
+            style={{ width: fading ? "100%" : "70%" }}
           />
         </div>
 
