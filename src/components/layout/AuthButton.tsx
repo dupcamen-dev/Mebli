@@ -2,7 +2,7 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 
-export function AuthButton() {
+export function AuthButton({ scrolled }: { scrolled: boolean }) {
   const { data: session } = useSession();
 
   if (session) {
@@ -17,7 +17,9 @@ export function AuthButton() {
         )}
         <button
           onClick={() => signOut()}
-          className="text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-colors cursor-pointer"
+          className={`text-[14px] font-medium transition-colors cursor-pointer ${
+            scrolled ? "text-on-surface-variant hover:text-secondary" : "text-white/70 hover:text-white"
+          }`}
         >
           Вийти
         </button>
@@ -28,7 +30,11 @@ export function AuthButton() {
   return (
     <button
       onClick={() => signIn("google")}
-      className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-bold uppercase tracking-[0.1em] font-[family-name:var(--font-body)] border border-outline-variant text-on-surface hover:bg-surface-container-low hover:border-secondary transition-all duration-300 cursor-pointer rounded-lg"
+      className={`hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-bold uppercase tracking-[0.1em] font-[family-name:var(--font-body)] border transition-all duration-300 cursor-pointer rounded-lg ${
+        scrolled
+          ? "border-outline-variant text-on-surface hover:bg-surface-container-low hover:border-secondary"
+          : "border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
+      }`}
     >
       <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24">
         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>

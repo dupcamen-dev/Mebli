@@ -86,7 +86,7 @@ export function Navbar() {
           Замовити проект
         </a>
 
-        <AuthButton />
+        <AuthButton scrolled={scrolled} />
 
         <button
           className="md:hidden transition-colors text-white relative z-[61]"
