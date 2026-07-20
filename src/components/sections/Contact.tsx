@@ -14,16 +14,13 @@ export function Contact() {
     e.preventDefault();
     setStatus("sending");
 
-    const botToken = localStorage.getItem("tg_bot_token") || "";
-    const chatId = localStorage.getItem("tg_chat_id") || "";
-
     const id = `MC-${Date.now().toString(36).toUpperCase()}`;
 
     try {
       const res = await fetch("/api/order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, email, message, botToken, chatId, orderId: id }),
+        body: JSON.stringify({ name, phone, email, message, orderId: id }),
       });
 
       if (!res.ok) throw new Error("Failed");

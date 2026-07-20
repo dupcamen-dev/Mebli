@@ -3,15 +3,23 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, phone, email, message, botToken, chatId } = body;
+    const { name, phone, email, message, orderId } = body;
 
-    if (!name || !phone || !botToken || !chatId) {
+    if (!name || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
+    const botToken = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+
+    if (!botToken || !chatId) {
+      return NextResponse.json({ error: "Telegram not configured" }, { status: 500 });
+    }
+
     const text = [
-      `🏠 *Нове замовлення на сайті Mebli Chortkiv*`,
+      `🏠 *Нове замовлення — Mebli Chortkiv*`,
       ``,
+      `📋 *Номер:* \`${orderId || "—"}\``,
       `👤 *Ім'я:* ${name}`,
       `📞 *Телефон:* ${phone}`,
       email ? `📧 *Email:* ${email}` : null,
