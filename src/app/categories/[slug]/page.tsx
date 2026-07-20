@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { categories, getCategoryBySlug } from "@/lib/categories";
+import { PhotoGallery } from "@/components/PhotoGallery";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -56,26 +57,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {cat.photos.map((photo, i) => (
-            <div
-              key={i}
-              className="group overflow-hidden rounded-lg bg-surface"
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={photo.src}
-                  alt={photo.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading={i < 3 ? "eager" : "lazy"}
-                />
-              </div>
-              <div className="p-4 md:p-5">
-                <p className="text-[14px] text-on-surface-variant">{photo.alt}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <PhotoGallery photos={cat.photos} />
 
         <div className="mt-16 md:mt-24 bg-white/60 backdrop-blur-lg border border-outline-variant/50 rounded-lg p-8 md:p-12 text-center">
           <h2 className="font-[family-name:var(--font-headline)] text-[22px] md:text-[28px] font-medium text-primary mb-4">
