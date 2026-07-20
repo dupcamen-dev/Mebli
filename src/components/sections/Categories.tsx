@@ -1,35 +1,5 @@
-const categories = [
-  {
-    title: "Кухні",
-    desc: "Функціональні та естетичні кухні, створені для вашого простору.",
-    image:
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&auto=format&fit=crop",
-  },
-  {
-    title: "Ванні кімнати",
-    desc: "Меблі для ванних кімнат з вологостійких матеріалів.",
-    image:
-      "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80&auto=format&fit=crop",
-  },
-  {
-    title: "Вітальні",
-    desc: "Шафи, полиці та системи зберігання для вітальні.",
-    image:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80&auto=format&fit=crop",
-  },
-  {
-    title: "Спальні",
-    desc: "Ліжка, комоди та гардеробні для комфотного відпочинку.",
-    image:
-      "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80&auto=format&fit=crop",
-  },
-  {
-    title: "Офіси",
-    desc: "Меблі для офісних просторів, що поєднують функціональність та стиль.",
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80&auto=format&fit=crop",
-  },
-];
+import Link from "next/link";
+import { categories } from "@/lib/categories";
 
 export function Categories() {
   return (
@@ -53,7 +23,11 @@ export function Categories() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((cat) => (
-            <div key={cat.title} className="group cursor-pointer">
+            <Link
+              key={cat.slug}
+              href={`/categories/${cat.slug}`}
+              className="group cursor-pointer"
+            >
               <div className="aspect-[4/3] overflow-hidden mb-6 rounded-lg">
                 <img
                   src={cat.image}
@@ -67,7 +41,7 @@ export function Categories() {
               <p className="text-[16px] leading-[1.7] text-green-section-muted">
                 {cat.desc}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
