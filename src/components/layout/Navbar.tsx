@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { AuthButton } from "@/components/layout/AuthButton";
+import { useSession } from "next-auth/react";
 
 const navLinks = [
   { href: "#process", label: "Процес" },
@@ -14,6 +15,7 @@ const navLinks = [
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { data: session } = useSession();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -72,19 +74,55 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
+          {session?.user?.email && (
+            <Link
+              href="/admin"
+              className={`text-[16px] font-medium tracking-wide transition-colors duration-300 ${
+                scrolled
+                  ? "text-secondary hover:text-secondary/80"
+                  : "text-white/70 hover:text-white"
+              }`}
+            >
+              Адмін
+            </Link>
+          )}
+          <Link
+            href="/track"
+            className={`text-[16px] font-medium tracking-wide transition-colors duration-300 ${
+              scrolled
+                ? "text-on-surface-variant hover:text-secondary"
+                : "text-white/70 hover:text-white"
+            }`}
+          >
+            Відстеження
+          </Link>
         </div>
 
-        <a
-          href="#contact"
-          onClick={(e) => handleClick(e, "#contact")}
-          className={`hidden md:inline-flex px-7 py-3 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] transition-all duration-300 cursor-pointer rounded-lg ${
-            scrolled
-              ? "bg-secondary text-on-secondary hover:bg-secondary/85 shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
-              : "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
-          }`}
-        >
-          Замовити проект
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          {session?.user?.email && (
+            <Link
+              href="/admin"
+              className={`px-5 py-2.5 text-[13px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] transition-all duration-300 rounded-lg ${
+                scrolled
+                  ? "bg-secondary text-on-secondary hover:bg-secondary/85 shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
+                  : "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
+              }`}
+            >
+              Адмін
+            </Link>
+          )}
+          <a
+            href="#contact"
+            onClick={(e) => handleClick(e, "#contact")}
+            className={`px-7 py-3 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] transition-all duration-300 cursor-pointer rounded-lg ${
+              scrolled
+                ? "bg-secondary text-on-secondary hover:bg-secondary/85 shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
+                : "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
+            }`}
+          >
+            Замовити проект
+          </a>
+        </div>
 
         <AuthButton scrolled={scrolled} />
 
@@ -123,6 +161,21 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
+          {session?.user?.email && (
+            <Link
+              href="/admin"
+              onClick={() => setMobileOpen(false)}
+              className="text-tertiary hover:text-white transition-colors duration-300 font-[family-name:var(--font-headline)] text-[24px] font-medium py-3"
+              style={{
+                transitionDelay: mobileOpen ? `${navLinks.length * 80}ms` : "0ms",
+                opacity: mobileOpen ? 1 : 0,
+                transform: mobileOpen ? "translateY(0)" : "translateY(20px)",
+                transition: "opacity 0.4s ease, transform 0.4s ease, color 0.3s ease",
+              }}
+            >
+              Адмін панель
+            </Link>
+          )}
           <a
             href="#contact"
             onClick={(e) => handleClick(e, "#contact")}

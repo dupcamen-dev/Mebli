@@ -1,9 +1,50 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+
 export function Contact() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [orderId, setOrderId] = useState<string | null>(null);
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    const botToken = localStorage.getItem("tg_bot_token") || "";
+    const chatId = localStorage.getItem("tg_chat_id") || "";
+
+    const id = `MC-${Date.now().toString(36).toUpperCase()}`;
+
+    try {
+      const res = await fetch("/api/order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, email, message, botToken, chatId, orderId: id }),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+
+      const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+      orders.unshift({ id, name, phone, email, message, status: "new", createdAt: new Date().toISOString() });
+      localStorage.setItem("orders", JSON.stringify(orders));
+
+      setOrderId(id);
+      setStatus("sent");
+      setName("");
+      setPhone("");
+      setEmail("");
+      setMessage("");
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
-    <section
-      className="py-28 md:py-44"
-      id="contact"
-    >
+    <section className="py-28 md:py-44" id="contact">
       <div className="max-w-[1600px] mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           <div>
@@ -33,10 +74,7 @@ export function Contact() {
                 <span className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
                   Телефон
                 </span>
-                <a
-                  href="tel:+380000000000"
-                  className="text-[16px] leading-[1.6] text-on-surface hover:text-secondary transition-colors duration-300"
-                >
+                <a href="tel:+380000000000" className="text-[16px] leading-[1.6] text-on-surface hover:text-secondary transition-colors duration-300">
                   +38 (00) 000-00-00
                 </a>
               </div>
@@ -44,10 +82,7 @@ export function Contact() {
                 <span className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
                   Email
                 </span>
-                <a
-                  href="mailto:info@mebli-chortkiv.ua"
-                  className="text-[16px] leading-[1.6] text-on-surface hover:text-secondary transition-colors duration-300"
-                >
+                <a href="mailto:info@mebli-chortkiv.ua" className="text-[16px] leading-[1.6] text-on-surface hover:text-secondary transition-colors duration-300">
                   info@mebli-chortkiv.ua
                 </a>
               </div>
@@ -71,62 +106,101 @@ export function Contact() {
           </div>
 
           <div className="bg-white/70 backdrop-blur-xl p-10 md:p-12 border border-outline-variant/50 rounded-lg shadow-[0_8px_30px_-12px_rgba(0,0,0,0.1)]">
-            <form className="space-y-8">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3"
+            {status === "sent" ? (
+              <div className="flex flex-col items-center justify-center h-full text-center py-12">
+                <span className="material-symbols-outlined text-[56px] text-secondary mb-6">check_circle</span>
+                <h3 className="font-[family-name:var(--font-headline)] text-[24px] font-medium text-primary mb-3">
+                  Заявку надіслано!
+                </h3>
+                <p className="text-[15px] text-on-surface-variant mb-6">
+                  Ми зв&apos;яжемося з вами найближчим часом.
+                </p>
+                <div className="bg-surface border border-outline-variant/50 rounded-lg px-6 py-4 mb-8">
+                  <span className="text-[12px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-1">
+                    Номер замовлення
+                  </span>
+                  <span className="text-[20px] font-bold font-[family-name:var(--font-headline)] text-primary">
+                    {orderId}
+                  </span>
+                </div>
+                <a
+                  href={`/track?id=${orderId}`}
+                  className="text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] text-secondary hover:text-secondary/80 transition-colors"
                 >
-                  Ім&apos;я
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300"
-                  placeholder="Ваше ім'я"
-                />
+                  Відстежити замовлення →
+                </a>
               </div>
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3"
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div>
+                  <label htmlFor="contact-name" className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
+                    Ім&apos;я
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300"
+                    placeholder="Ваше ім'я"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-phone" className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
+                    Телефон
+                  </label>
+                  <input
+                    type="tel"
+                    id="contact-phone"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300"
+                    placeholder="+38 (___) ___-__-__"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-email" className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
+                    Email (необов&apos;язково)
+                  </label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300"
+                    placeholder="your@email.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-message" className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
+                    Повідомлення
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    rows={4}
+                    required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300 resize-none"
+                    placeholder="Розкажіть про ваш проект..."
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="w-full bg-secondary text-on-secondary px-10 py-5 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-secondary/85 transition-all duration-300 mt-4 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.15)] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Телефон
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300"
-                  placeholder="+38 (___) ___-__-__"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3"
-                >
-                  Повідомлення
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  required
-                  className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300 resize-none"
-                  placeholder="Розкажіть про ваш проект..."
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-secondary text-on-secondary px-10 py-5 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-secondary/85 transition-all duration-300 mt-4 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
-              >
-                Надіслати заявку
-              </button>
-            </form>
+                  {status === "sending" ? "Надсилаємо..." : "Надіслати заявку"}
+                </button>
+                {status === "error" && (
+                  <p className="text-[14px] text-red-600 text-center">
+                    Помилка надсилання. Перевірте налаштування Telegram бота в адмін-панелі.
+                  </p>
+                )}
+              </form>
+            )}
           </div>
         </div>
       </div>

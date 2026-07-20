@@ -28,47 +28,56 @@ export default async function AdminPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Link
-            href="#"
-            className="p-10 bg-white/60 backdrop-blur-lg border border-outline-variant/50 rounded-lg transition-all duration-500 hover:border-secondary/30 hover:bg-white/80 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)]"
+            href="/admin/orders"
+            className="group p-10 bg-white/60 backdrop-blur-lg border border-outline-variant/50 rounded-lg transition-all duration-500 hover:border-secondary/30 hover:bg-white/80 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)]"
           >
-            <span className="material-symbols-outlined text-[36px] text-secondary mb-6 block" style={{ fontVariationSettings: "'FILL' 0" }}>
-              edit_note
+            <span
+              className="material-symbols-outlined text-[36px] text-secondary mb-6 block"
+              style={{ fontVariationSettings: "'FILL' 0" }}
+            >
+              list_alt
             </span>
-            <h3 className="font-[family-name:var(--font-headline)] text-[22px] font-medium text-primary mb-3">
-              Контент
+            <h3 className="font-[family-name:var(--font-headline)] text-[22px] font-medium text-primary mb-3 group-hover:text-secondary transition-colors">
+              Замовлення
             </h3>
             <p className="text-[16px] leading-[1.7] text-on-surface-variant">
-              Редагування текстів та зображень на сайті
+              Перегляд та управління замовленнями з сайту
             </p>
           </Link>
 
           <Link
-            href="#"
-            className="p-10 bg-white/60 backdrop-blur-lg border border-outline-variant/50 rounded-lg transition-all duration-500 hover:border-secondary/30 hover:bg-white/80 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)]"
+            href="/admin/settings"
+            className="group p-10 bg-white/60 backdrop-blur-lg border border-outline-variant/50 rounded-lg transition-all duration-500 hover:border-secondary/30 hover:bg-white/80 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)]"
           >
-            <span className="material-symbols-outlined text-[36px] text-secondary mb-6 block" style={{ fontVariationSettings: "'FILL' 0" }}>
-              photo_library
+            <span
+              className="material-symbols-outlined text-[36px] text-secondary mb-6 block"
+              style={{ fontVariationSettings: "'FILL' 0" }}
+            >
+              settings
             </span>
-            <h3 className="font-[family-name:var(--font-headline)] text-[22px] font-medium text-primary mb-3">
-              Галерея
+            <h3 className="font-[family-name:var(--font-headline)] text-[22px] font-medium text-primary mb-3 group-hover:text-secondary transition-colors">
+              Налаштування
             </h3>
             <p className="text-[16px] leading-[1.7] text-on-surface-variant">
-              Завантаження та видалення фото робіт
+              Telegram бот, API ключі та інші налаштування
             </p>
           </Link>
 
           <Link
-            href="#"
-            className="p-10 bg-white/60 backdrop-blur-lg border border-outline-variant/50 rounded-lg transition-all duration-500 hover:border-secondary/30 hover:bg-white/80 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)]"
+            href="/track"
+            className="group p-10 bg-white/60 backdrop-blur-lg border border-outline-variant/50 rounded-lg transition-all duration-500 hover:border-secondary/30 hover:bg-white/80 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)]"
           >
-            <span className="material-symbols-outlined text-[36px] text-secondary mb-6 block" style={{ fontVariationSettings: "'FILL' 0" }}>
-              reviews
+            <span
+              className="material-symbols-outlined text-[36px] text-secondary mb-6 block"
+              style={{ fontVariationSettings: "'FILL' 0" }}
+            >
+              package_2
             </span>
-            <h3 className="font-[family-name:var(--font-headline)] text-[22px] font-medium text-primary mb-3">
-              Відгуки
+            <h3 className="font-[family-name:var(--font-headline)] text-[22px] font-medium text-primary mb-3 group-hover:text-secondary transition-colors">
+              Відстеження
             </h3>
             <p className="text-[16px] leading-[1.7] text-on-surface-variant">
-              Модерація та додавання нових відгуків
+              Перегляд статусу замовлень для клієнтів
             </p>
           </Link>
         </div>
