@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { AuthButton } from "@/components/layout/AuthButton";
 import { useSession } from "next-auth/react";
@@ -16,6 +17,10 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { data: session } = useSession();
+  const pathname = usePathname();
+  const isInnerPage = pathname !== "/";
+
+  const showScrolled = scrolled || isInnerPage;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -44,29 +49,42 @@ export function Navbar() {
   return (
     <header
       className={`w-full fixed top-0 z-50 transition-all duration-500 ${
-        scrolled && !mobileOpen
+        showScrolled && !mobileOpen
           ? "bg-background/90 backdrop-blur-xl shadow-[0_1px_0_0_var(--color-outline-variant)]"
           : "bg-transparent"
       }`}
     >
       <nav className="flex justify-between items-center max-w-[1600px] mx-auto px-5 md:px-8 h-[76px]">
-        <Link
-          href="/"
-          className={`font-[family-name:var(--font-headline)] text-[24px] font-semibold tracking-tight transition-colors duration-500 relative z-[61] ${
-            mobileOpen ? "text-white" : scrolled ? "text-primary" : "text-white"
-          }`}
-        >
-          Mebli Chortkiv
-        </Link>
+        <div className="flex items-center gap-4">
+          {isInnerPage && (
+            <Link
+              href="/"
+              className={`flex items-center gap-1.5 text-[14px] font-medium transition-colors duration-300 ${
+                showScrolled ? "text-on-surface-variant hover:text-secondary" : "text-white/70 hover:text-white"
+              }`}
+            >
+              <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+              На сайт
+            </Link>
+          )}
+          <Link
+            href="/"
+            className={`font-[family-name:var(--font-headline)] text-[24px] font-semibold tracking-tight transition-colors duration-500 relative z-[61] ${
+              mobileOpen ? "text-white" : showScrolled ? "text-primary" : "text-white"
+            }`}
+          >
+            Mebli Chortkiv
+          </Link>
+        </div>
 
         <div className="hidden md:flex gap-10 items-center">
-          {navLinks.map((link) => (
+          {!isInnerPage && navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleClick(e, link.href)}
               className={`text-[16px] font-medium tracking-wide transition-colors duration-300 cursor-pointer ${
-                scrolled
+                showScrolled
                   ? "text-on-surface-variant hover:text-secondary"
                   : "text-white/70 hover:text-white"
               }`}
@@ -78,7 +96,7 @@ export function Navbar() {
             <Link
               href="/admin"
               className={`text-[16px] font-medium tracking-wide transition-colors duration-300 ${
-                scrolled
+                showScrolled
                   ? "text-secondary hover:text-secondary/80"
                   : "text-white/70 hover:text-white"
               }`}
@@ -89,7 +107,7 @@ export function Navbar() {
           <Link
             href="/track"
             className={`text-[16px] font-medium tracking-wide transition-colors duration-300 ${
-              scrolled
+              showScrolled
                 ? "text-on-surface-variant hover:text-secondary"
                 : "text-white/70 hover:text-white"
             }`}
@@ -103,7 +121,7 @@ export function Navbar() {
             <Link
               href="/admin"
               className={`px-5 py-2.5 text-[13px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] transition-all duration-300 rounded-lg ${
-                scrolled
+                showScrolled
                   ? "bg-secondary text-on-secondary hover:bg-secondary/85 shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
                   : "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
               }`}
@@ -111,23 +129,27 @@ export function Navbar() {
               Адмін
             </Link>
           )}
-          <a
-            href="#contact"
-            onClick={(e) => handleClick(e, "#contact")}
-            className={`px-7 py-3 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] transition-all duration-300 cursor-pointer rounded-lg ${
-              scrolled
-                ? "bg-secondary text-on-secondary hover:bg-secondary/85 shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
-                : "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
-            }`}
-          >
-            Замовити проект
-          </a>
+          {!isInnerPage && (
+            <a
+              href="#contact"
+              onClick={(e) => handleClick(e, "#contact")}
+              className={`px-7 py-3 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] transition-all duration-300 cursor-pointer rounded-lg ${
+                showScrolled
+                  ? "bg-secondary text-on-secondary hover:bg-secondary/85 shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
+                  : "bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.2)]"
+              }`}
+            >
+              Замовити проект
+            </a>
+          )}
         </div>
 
-        <AuthButton scrolled={scrolled} />
+        <AuthButton scrolled={showScrolled} />
 
         <button
-          className="md:hidden transition-colors text-white relative z-[61]"
+          className={`md:hidden transition-colors relative z-[61] ${
+            mobileOpen ? "text-white" : showScrolled ? "text-primary" : "text-white"
+          }`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Меню"
         >
@@ -145,7 +167,7 @@ export function Navbar() {
         }`}
       >
         <div className="flex flex-col justify-center items-center h-full px-8 gap-2">
-          {navLinks.map((link, i) => (
+          {!isInnerPage && navLinks.map((link, i) => (
             <a
               key={link.href}
               href={link.href}
@@ -176,19 +198,34 @@ export function Navbar() {
               Адмін панель
             </Link>
           )}
-          <a
-            href="#contact"
-            onClick={(e) => handleClick(e, "#contact")}
-            className="mt-6 bg-white text-green-section px-10 py-4 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/90 transition-all duration-300 cursor-pointer rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
+          <Link
+            href="/track"
+            onClick={() => setMobileOpen(false)}
+            className="text-tertiary hover:text-white transition-colors duration-300 font-[family-name:var(--font-headline)] text-[24px] font-medium py-3"
             style={{
-              transitionDelay: mobileOpen ? `${navLinks.length * 80}ms` : "0ms",
+              transitionDelay: mobileOpen ? `${(navLinks.length + 1) * 80}ms` : "0ms",
               opacity: mobileOpen ? 1 : 0,
               transform: mobileOpen ? "translateY(0)" : "translateY(20px)",
-              transition: "opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease",
+              transition: "opacity 0.4s ease, transform 0.4s ease, color 0.3s ease",
             }}
           >
-            Замовити проект
-          </a>
+            Відстеження
+          </Link>
+          {!isInnerPage && (
+            <a
+              href="#contact"
+              onClick={(e) => handleClick(e, "#contact")}
+              className="mt-6 bg-white text-green-section px-10 py-4 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/90 transition-all duration-300 cursor-pointer rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.25)]"
+              style={{
+                transitionDelay: mobileOpen ? `${(navLinks.length + 2) * 80}ms` : "0ms",
+                opacity: mobileOpen ? 1 : 0,
+                transform: mobileOpen ? "translateY(0)" : "translateY(20px)",
+                transition: "opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease",
+              }}
+            >
+              Замовити проект
+            </a>
+          )}
         </div>
       </div>
     </header>

@@ -12,18 +12,27 @@ export default async function AdminPage() {
   }
 
   return (
-    <section className="py-28 md:py-44">
+    <section className="py-28 md:py-44 min-h-screen">
       <div className="max-w-[1600px] mx-auto px-5 md:px-8">
-        <div className="max-w-xl mb-20">
-          <span className="text-[15px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-secondary mb-5 block">
-            Адмін панель
-          </span>
-          <h1 className="font-[family-name:var(--font-headline)] text-[36px] md:text-[48px] font-medium leading-[1.15] tracking-[-0.01em] text-primary mb-7">
-            Керування сайтом
-          </h1>
-          <p className="text-[16px] leading-[1.7] text-on-surface-variant">
-            Привіт, {session.user.name || session.user.email}
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
+          <div>
+            <span className="text-[15px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-secondary mb-5 block">
+              Адмін панель
+            </span>
+            <h1 className="font-[family-name:var(--font-headline)] text-[36px] md:text-[48px] font-medium leading-[1.15] tracking-[-0.01em] text-primary mb-4">
+              Керування сайтом
+            </h1>
+            <p className="text-[16px] leading-[1.7] text-on-surface-variant">
+              Привіт, {session.user.name || session.user.email}
+            </p>
+          </div>
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-colors self-start md:self-auto"
+          >
+            <span className="material-symbols-outlined text-[20px]">arrow_back</span>
+            Повернутися на сайт
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
