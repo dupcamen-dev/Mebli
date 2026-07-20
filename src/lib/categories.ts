@@ -142,6 +142,11 @@ export const categories: Category[] = [
       { src: "/gallery/spalni/spalni-w12.jpg", alt: "Шафа-купе — загальний вигляд" },
       { src: "/gallery/spalni/spalni-w13.jpg", alt: "Шафа-купе з полицями" },
       { src: "/gallery/spalni/spalni-w14.jpg", alt: "Шафа-купе — деталі інтер'єру" },
+      { src: "/gallery/spalni/spalni-w15.jpg", alt: "Місткі меблі у спальню" },
+      { src: "/gallery/spalni/spalni-w16.jpg", alt: "Спальня — загальний вигляд" },
+      { src: "/gallery/spalni/spalni-w17.jpg", alt: "Спальня з вішаками та дзеркалом" },
+      { src: "/gallery/spalni/spalni-w18.jpg", alt: "Спальня — деталі інтер'єру" },
+      { src: "/gallery/spalni/spalni-w19.jpg", alt: "Спальня з шафою та лавкою" },
     ],
   },
   {
@@ -156,11 +161,6 @@ export const categories: Category[] = [
       { src: "/gallery/prikhozha/prikhozha-4.jpg", alt: "Верхня шафа з відкритою дверкою" },
       { src: "/gallery/prikhozha/prikhozha-5.jpg", alt: "Інтер'єр шафи з полицями та штангами" },
       { src: "/gallery/prikhozha/prikhozha-6.jpg", alt: "Шафа — внутрішній простір з полицями" },
-      { src: "/gallery/prikhozha/prikhozha-w1.jpg", alt: "Місткі меблі у передпокій" },
-      { src: "/gallery/prikhozha/prikhozha-w2.jpg", alt: "Передпокій — загальний вигляд" },
-      { src: "/gallery/prikhozha/prikhozha-w3.jpg", alt: "Передпокій з вішаками та дзеркалом" },
-      { src: "/gallery/prikhozha/prikhozha-w4.jpg", alt: "Передпокій — деталі інтер'єру" },
-      { src: "/gallery/prikhozha/prikhozha-w5.jpg", alt: "Передпокій з шафою та лавкою" },
     ],
   },
 ];
