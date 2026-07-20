@@ -13,7 +13,7 @@ export function Story() {
 
         <div className="relative mb-20 overflow-hidden rounded-lg">
           <img
-            src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?w=1400&q=80&auto=format&fit=crop"
+            src="/gallery/kuhni/kuhni-5.jpg"
             alt="Майстерня Mebli Chortkiv"
             className="w-full h-[320px] md:h-[520px] object-cover rounded-lg"
           />
@@ -31,7 +31,7 @@ export function Story() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-start mb-20">
           <div className="md:col-span-5">
             <img
-              src="https://images.unsplash.com/photo-1541123603104-512919d6a96c?w=800&q=80&auto=format&fit=crop"
+              src="/gallery/vitalni/vitalni-5.jpg"
               alt="Ручна робота над меблями"
               className="w-full h-72 md:h-96 object-cover rounded-lg mb-8"
             />
