@@ -1,6 +1,7 @@
 "use client";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 export function AuthButton({ scrolled }: { scrolled: boolean }) {
   const { data: session } = useSession();
@@ -8,6 +9,16 @@ export function AuthButton({ scrolled }: { scrolled: boolean }) {
   if (session) {
     return (
       <div className="hidden md:flex items-center gap-4">
+        {(session.user as { isAdmin?: boolean }).isAdmin && (
+          <Link
+            href="/admin"
+            className={`text-[14px] font-medium transition-colors ${
+              scrolled ? "text-on-surface-variant hover:text-secondary" : "text-white/70 hover:text-white"
+            }`}
+          >
+            Адмін
+          </Link>
+        )}
         {session.user?.image && (
           <img
             src={session.user.image}
