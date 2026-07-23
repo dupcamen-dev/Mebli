@@ -116,9 +116,7 @@
     "formSubmit": "Надіслати заявку",
     "formError": "Помилка надсилання. Перевірте налаштування Telegram бота в адмін-панелі.",
     "successHeading": "Заявку надіслано!",
-    "successDescription": "Ми зв'яжемося з вами найближчим часом.",
-    "successOrderLabel": "Номер замовлення",
-    "successTrackLink": "Відстежити замовлення →"
+    "successDescription": "Ми зв'яжемося з вами найближчим часом."
   },
   "navbar": {
     "brand": "Mebli Chortkiv",
@@ -130,7 +128,6 @@
       { "href": "#contact", "label": "Контакти" }
     ],
     "admin": "Адмін",
-    "tracking": "Відстеження",
     "cta": "Замовити проект",
     "signIn": "Увійти",
     "signOut": "Вийти",
@@ -142,28 +139,12 @@
     "description": "Виготовлення меблів за індивідуальним проектом. Створюємо простір, який відображає вашу унікальність.",
     "categoriesHeading": "Категорії",
     "navigationHeading": "Навігація",
-    "tracking": "Відстежити замовлення",
     "copyright": "© {year} Mebli Chortkiv. Всі права захищені.",
     "credit": "Designed & Built by Million Pixels"
   },
   "scrollToTop": {
     "contactsLabel": "Контакти",
     "topLabel": "Нагору"
-  },
-  "track": {
-    "subtitle": "Відстеження",
-    "heading": "Перевірити статус замовлення",
-    "description": "Введіть номер замовлення, щоб дізнатися статус.",
-    "placeholder": "MC-XXXXXXXXX",
-    "button": "Знайти",
-    "searching": "Пошук...",
-    "notFound": "Замовлення не знайдено",
-    "status": {
-      "new": "Нове",
-      "in_progress": "В роботі",
-      "completed": "Виконано",
-      "cancelled": "Скасовано"
-    }
   },
   "seo": {
     "title": "Mebli Chortkiv — Меблі на замовлення",

@@ -93,9 +93,6 @@ export function Navbar() {
               {c.admin}
             </Link>
           )}
-          <Link href="/track" className={`text-[16px] font-medium tracking-wide transition-colors duration-300 ${showScrolled ? "text-on-surface-variant hover:text-secondary" : "text-white/70 hover:text-white"}`}>
-            {c.tracking}
-          </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
@@ -160,11 +157,6 @@ export function Navbar() {
                 {c.adminPanel}
               </Link>
             )}
-
-            <Link href="/track" onClick={close} className="text-tertiary hover:text-white transition-colors duration-300 font-[family-name:var(--font-headline)] text-[24px] font-medium py-3"
-              style={{ transitionDelay: mobileOpen ? `${(c.links.length + 1) * 80}ms` : "0ms", opacity: mobileOpen ? 1 : 0, transform: mobileOpen ? "translateY(0)" : "translateY(20px)", transition: "opacity 0.4s ease, transform 0.4s ease, color 0.3s ease" }}>
-              {c.tracking}
-            </Link>
 
             {!isInnerPage && (
               <a href="#contact" onClick={(e) => handleClick(e, "#contact")} className="mt-6 bg-white text-green-section px-10 py-4 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-white/90 transition-all duration-300 cursor-pointer rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.25)]"

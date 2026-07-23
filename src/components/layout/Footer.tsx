@@ -88,11 +88,6 @@ export function Footer() {
                   {content.navbar.links[3]?.label || "Контакти"}
                 </a>
               </li>
-              <li>
-                <Link href="/track" className="text-[16px] text-inverse-on-surface/60 hover:text-white transition-colors duration-300">
-                  {c.tracking}
-                </Link>
-              </li>
             </ul>
             <p className="text-[14px] text-inverse-on-surface/30">
               &copy; {new Date().getFullYear()} {c.brand}. Всі права захищені.

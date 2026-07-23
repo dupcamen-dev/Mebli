@@ -108,23 +108,6 @@ export default async function AdminPage() {
             </p>
           </Link>
 
-          <Link
-            href="/track"
-            className="group p-7 md:p-10 bg-white/60 backdrop-blur-lg border border-outline-variant/50 rounded-lg transition-all duration-500 hover:border-secondary/30 hover:bg-white/80 hover:shadow-[0_8px_30px_-12px_rgba(47,51,44,0.15)] sm:col-span-2 md:col-span-1"
-          >
-            <span
-              className="material-symbols-outlined text-[32px] md:text-[36px] text-secondary mb-4 md:mb-6 block"
-              style={{ fontVariationSettings: "'FILL' 0" }}
-            >
-              package_2
-            </span>
-            <h3 className="font-[family-name:var(--font-headline)] text-[18px] md:text-[22px] font-medium text-primary mb-2 md:mb-3 group-hover:text-secondary transition-colors">
-              Відстеження
-            </h3>
-            <p className="text-[14px] md:text-[16px] leading-[1.7] text-on-surface-variant">
-              Перегляд статусу замовлень для клієнтів
-            </p>
-          </Link>
         </div>
       </div>
     </section>
