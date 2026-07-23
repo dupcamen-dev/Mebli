@@ -1,26 +1,41 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { categories, getCategoryBySlug } from "@/lib/categories";
+import { kvGetCategories } from "@/lib/kv";
+import { categories as defaultCategories, type Category } from "@/lib/categories";
+import { readFile } from "fs/promises";
+import path from "path";
 import { PhotoGallery } from "@/components/PhotoGallery";
 import type { Metadata } from "next";
 
-export function generateStaticParams() {
-  return categories.map((c) => ({ slug: c.slug }));
+const CATEGORIES_FILE = path.join(process.cwd(), "data", "categories.json");
+
+async function getCategories(): Promise<Category[]> {
+  const kv = await kvGetCategories();
+  if (kv && Array.isArray(kv)) return kv as Category[];
+  try {
+    const data = await readFile(CATEGORIES_FILE, "utf-8");
+    return JSON.parse(data) as Category[];
+  } catch {
+    return defaultCategories;
+  }
 }
 
-export function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  return params.then(({ slug }) => {
-    const cat = getCategoryBySlug(slug);
-    return {
-      title: cat ? `${cat.title} — Mebli Chortkiv` : "Mebli Chortkiv",
-      description: cat?.desc,
-    };
-  });
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const cats = await getCategories();
+  const cat = cats.find((c) => c.slug === slug);
+  return {
+    title: cat ? `${cat.title} — Mebli Chortkiv` : "Mebli Chortkiv",
+    description: cat?.desc,
+  };
 }
 
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const cat = getCategoryBySlug(slug);
+  const cats = await getCategories();
+  const cat = cats.find((c) => c.slug === slug);
 
   if (!cat) notFound();
 

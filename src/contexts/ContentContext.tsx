@@ -12,45 +12,7 @@ interface ContentContextType {
   hasChanges: boolean;
 }
 
-const STORAGE_KEY = "mebli-content-overrides";
-
-function loadOverrides(): Partial<ContentData> | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : null;
-  } catch {
-    return null;
-  }
-}
-
-function saveOverrides(overrides: Partial<ContentData>) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(overrides));
-  } catch {
-    // ignore
-  }
-}
-
-function deepMerge<T extends Record<string, unknown>>(base: T, overrides: Partial<T>): T {
-  const result = { ...base };
-  for (const key of Object.keys(overrides) as (keyof T)[]) {
-    const overrideVal = overrides[key];
-    const baseVal = base[key];
-    if (
-      overrideVal && typeof overrideVal === "object" && !Array.isArray(overrideVal) &&
-      baseVal && typeof baseVal === "object" && !Array.isArray(baseVal)
-    ) {
-      (result as Record<string, unknown>)[key as string] = deepMerge(
-        baseVal as Record<string, unknown>,
-        overrideVal as Record<string, unknown>
-      );
-    } else if (overrideVal !== undefined) {
-      (result as Record<string, unknown>)[key as string] = overrideVal;
-    }
-  }
-  return result;
-}
+const ContentContext = createContext<ContentContextType | null>(null);
 
 function setNestedValue(obj: Record<string, unknown>, dotKey: string, value: string) {
   const keys = dotKey.split(".");
@@ -66,25 +28,36 @@ function setNestedValue(obj: Record<string, unknown>, dotKey: string, value: str
   current[keys[keys.length - 1]] = value;
 }
 
-const ContentContext = createContext<ContentContextType | null>(null);
+function deepClone(obj: unknown): unknown {
+  if (obj === null || typeof obj !== "object") return obj;
+  if (Array.isArray(obj)) return obj.map(deepClone);
+  const result: Record<string, unknown> = {};
+  for (const key of Object.keys(obj as Record<string, unknown>)) {
+    result[key] = deepClone((obj as Record<string, unknown>)[key]);
+  }
+  return result;
+}
 
 export function ContentProvider({ children }: { children: ReactNode }) {
   const [content, setContent] = useState<ContentData>(defaultContent);
-  const [overrides, setOverrides] = useState<Partial<ContentData>>({});
+  const [pendingChanges, setPendingChanges] = useState<Record<string, unknown>>({});
   const [loading, setLoading] = useState(true);
   const [hasChanges, setHasChanges] = useState(false);
 
   useEffect(() => {
-    const saved = loadOverrides();
-    if (saved && Object.keys(saved).length > 0) {
-      setContent((prev) => deepMerge(prev as Record<string, unknown>, saved as Record<string, unknown>) as ContentData);
-      setOverrides(saved);
-    }
-    setLoading(false);
+    fetch("/api/content")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (data && typeof data === "object") {
+          setContent(data as ContentData);
+        }
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, []);
 
   const updateContent = useCallback((section: string, key: string, value: string) => {
-    setOverrides((prev) => {
+    setPendingChanges((prev) => {
       const next = { ...prev };
       if (!next[section] || typeof next[section] !== "object") {
         next[section] = {};
@@ -93,10 +66,16 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       return next;
     });
     setHasChanges(true);
+
+    setContent((prev) => {
+      const next = { ...prev, [section]: { ...(prev[section] as Record<string, unknown>) } };
+      setNestedValue(next[section] as Record<string, unknown>, key, value);
+      return next;
+    });
   }, []);
 
   const updateArrayItem = useCallback((section: string, arrayKey: string, index: number, field: string, value: string) => {
-    setOverrides((prev) => {
+    setPendingChanges((prev) => {
       const next = { ...prev };
       if (!next[section] || typeof next[section] !== "object") {
         next[section] = {};
@@ -109,26 +88,45 @@ export function ContentProvider({ children }: { children: ReactNode }) {
       return next;
     });
     setHasChanges(true);
+
+    setContent((prev) => {
+      const next = { ...prev, [section]: { ...(prev[section] as Record<string, unknown>) } };
+      const sec = next[section] as Record<string, unknown>;
+      if (!sec[arrayKey] || !Array.isArray(sec[arrayKey])) return next;
+      const arr = [...(sec[arrayKey] as Record<string, unknown>[])];
+      arr[index] = { ...arr[index], [field]: value };
+      sec[arrayKey] = arr;
+      return next;
+    });
   }, []);
 
   const saveContent = useCallback(async () => {
-    const merged = deepMerge(defaultContent as Record<string, unknown>, overrides as Record<string, unknown>) as ContentData;
-    setContent(merged);
-    saveOverrides(overrides);
-
     try {
-      await fetch("/api/admin/content", {
+      const merged = deepClone(content) as Record<string, unknown>;
+      for (const section of Object.keys(pendingChanges)) {
+        const sectionChanges = pendingChanges[section] as Record<string, unknown>;
+        if (!merged[section]) merged[section] = {};
+        for (const key of Object.keys(sectionChanges)) {
+          (merged[section] as Record<string, unknown>)[key] = sectionChanges[key];
+        }
+      }
+
+      const res = await fetch("/api/admin/content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: merged }),
       });
-    } catch {
-      // ignore - localStorage is the real persistence
-    }
 
-    setHasChanges(false);
-    return true;
-  }, [overrides]);
+      if (res.ok) {
+        setPendingChanges({});
+        setHasChanges(false);
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
+    }
+  }, [content, pendingChanges]);
 
   return (
     <ContentContext.Provider value={{ content, loading, updateContent, updateArrayItem, saveContent, hasChanges }}>

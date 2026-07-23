@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useContent } from "@/contexts/ContentContext";
-import { categories } from "@/lib/categories";
+import { useCategories } from "@/hooks/useCategories";
 
 export function Footer() {
   const { content } = useContent();
+  const { categories } = useCategories();
   const c = content.footer;
   return (
     <footer className="w-full mt-auto bg-inverse-surface text-inverse-on-surface">
