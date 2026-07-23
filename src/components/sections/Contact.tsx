@@ -71,9 +71,16 @@ export function Contact() {
                 <span className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
                   {c.phoneLabel}
                 </span>
-                <a href="tel:+380000000000" className="text-[16px] leading-[1.6] text-on-surface hover:text-secondary transition-colors duration-300">
-                  {c.phone}
-                </a>
+                <div className="flex flex-col gap-1">
+                  {c.phone.split("\n").map((p) => {
+                    const digits = p.replace(/\D/g, "");
+                    return (
+                      <a key={p} href={`tel:+38${digits}`} className="text-[16px] leading-[1.6] text-on-surface hover:text-secondary transition-colors duration-300">
+                        {p.trim()}
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
               <div>
                 <span className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
