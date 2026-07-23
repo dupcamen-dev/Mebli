@@ -44,6 +44,25 @@ export default function AdminContentPage() {
     }
   };
 
+  const handleSeed = async () => {
+    if (!confirm("Скинути всі дані з файлу? Поточні зміни в KV будуть перезаписані.")) return;
+    setSaving(true);
+    setMessage("");
+    try {
+      const res = await fetch("/api/admin/seed", { method: "POST" });
+      if (res.ok) {
+        setMessage("Дані скинуті з файлу! Перезавантажте сторінку.");
+        setTimeout(() => window.location.reload(), 2000);
+      } else {
+        setMessage("Помилка скидання");
+      }
+    } catch {
+      setMessage("Помилка скидання");
+    } finally {
+      setSaving(false);
+    }
+  };
+
   return (
     <section className="py-28 md:py-44 min-h-screen">
       <div className="max-w-[1600px] mx-auto px-5 md:px-8">
@@ -286,7 +305,7 @@ export default function AdminContentPage() {
             </div>
           )}
 
-          <div className="mt-10 pt-6 border-t border-outline-variant/50 flex items-center gap-4">
+          <div className="mt-10 pt-6 border-t border-outline-variant/50 flex items-center gap-4 flex-wrap">
             <button
               onClick={handleSave}
               disabled={saving || !hasChanges}
@@ -297,6 +316,13 @@ export default function AdminContentPage() {
               }`}
             >
               {saving ? "Збереження..." : "Зберегти"}
+            </button>
+            <button
+              onClick={handleSeed}
+              disabled={saving}
+              className="px-6 py-3 rounded-lg text-[14px] font-medium bg-red-50 text-red-600 border border-red-200 hover:bg-red-100 transition-all cursor-pointer"
+            >
+              Скинути дані з файлу
             </button>
             {hasChanges && (
               <span className="text-[13px] text-secondary font-medium">Є незбережені зміни</span>
