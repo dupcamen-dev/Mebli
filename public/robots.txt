@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mebli-chortkiv.vercel.app/sitemap.xml
