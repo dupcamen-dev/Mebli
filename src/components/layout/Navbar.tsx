@@ -56,13 +56,13 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           {isInnerPage && (
             <Link
-              href="/"
+              href={pathname.startsWith("/categories/") ? "/#categories" : "/"}
               className={`hidden md:flex items-center gap-1.5 text-[14px] font-medium transition-colors duration-300 ${
                 showScrolled ? "text-on-surface-variant hover:text-secondary" : "text-white/70 hover:text-white"
               }`}
             >
               <span className="material-symbols-outlined text-[20px]">arrow_back</span>
-              {c.backToSite}
+              {pathname.startsWith("/categories/") ? "До категорій" : c.backToSite}
             </Link>
           )}
           <Link
