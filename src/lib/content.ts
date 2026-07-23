@@ -1,5 +1,10 @@
 import contentData from "../../data/content.json";
 
+export interface ContentSection {
+  heading: string;
+  content: string;
+}
+
 export interface ContentData {
   [key: string]: unknown;
   hero: {
@@ -53,15 +58,12 @@ export interface ContentData {
     formError: string;
     successHeading: string;
     successDescription: string;
-    successOrderLabel: string;
-    successTrackLink: string;
   };
   navbar: {
     brand: string;
     backToSite: string;
     links: { href: string; label: string }[];
     admin: string;
-    tracking: string;
     cta: string;
     signIn: string;
     signOut: string;
@@ -73,7 +75,6 @@ export interface ContentData {
     description: string;
     categoriesHeading: string;
     navigationHeading: string;
-    tracking: string;
     copyright: string;
     credit: string;
   };
@@ -81,15 +82,15 @@ export interface ContentData {
     contactsLabel: string;
     topLabel: string;
   };
-  track: {
-    subtitle: string;
-    heading: string;
-    description: string;
-    placeholder: string;
-    button: string;
-    searching: string;
-    notFound: string;
-    status: { new: string; in_progress: string; completed: string; cancelled: string };
+  privacy: {
+    label: string;
+    updatedDate: string;
+    sections: ContentSection[];
+  };
+  terms: {
+    label: string;
+    updatedDate: string;
+    sections: ContentSection[];
   };
   seo: {
     title: string;

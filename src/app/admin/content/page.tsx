@@ -13,6 +13,8 @@ const SECTIONS = [
   { key: "contact", label: "Контакти", icon: "mail" },
   { key: "navbar", label: "Навігація", icon: "menu" },
   { key: "footer", label: "Підвал", icon: "web" },
+  { key: "privacy", label: "Конфіденційність", icon: "lock" },
+  { key: "terms", label: "Умови", icon: "gavel" },
   { key: "seo", label: "SEO", icon: "search" },
 ] as const;
 
@@ -274,6 +276,40 @@ export default function AdminContentPage() {
               <Field label="Заголовок сторінки" value={sectionData.title as string} onChange={(v) => updateContent("seo", "title", v)} />
               <TextArea label="Мета-опис" value={sectionData.description as string} onChange={(v) => updateContent("seo", "description", v)} />
               <TextArea label="Ключові слова" value={sectionData.keywords as string} onChange={(v) => updateContent("seo", "keywords", v)} />
+            </div>
+          )}
+
+          {activeSection === "privacy" && (
+            <div className="space-y-6">
+              <h2 className="font-[family-name:var(--font-headline)] text-[22px] md:text-[28px] font-medium text-primary mb-6">Політика конфіденційності</h2>
+              <Field label="Дата оновлення" value={sectionData.updatedDate as string} onChange={(v) => updateContent("privacy", "updatedDate", v)} />
+              <div className="mt-8">
+                <h3 className="text-[16px] font-medium text-primary mb-4">Розділи</h3>
+                {(sectionData.sections as { heading: string; content: string }[] || []).map((section, i) => (
+                  <div key={i} className="ml-4 mb-6 p-4 border-l-2 border-secondary/30 space-y-3">
+                    <span className="text-[12px] text-secondary font-bold uppercase">Розділ {i + 1}</span>
+                    <Field label="Заголовок" value={section.heading} onChange={(v) => updateArrayItem("privacy", "sections", i, "heading", v)} />
+                    <TextArea label="Текст" value={section.content} onChange={(v) => updateArrayItem("privacy", "sections", i, "content", v)} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeSection === "terms" && (
+            <div className="space-y-6">
+              <h2 className="font-[family-name:var(--font-headline)] text-[22px] md:text-[28px] font-medium text-primary mb-6">Умови використання</h2>
+              <Field label="Дата оновлення" value={sectionData.updatedDate as string} onChange={(v) => updateContent("terms", "updatedDate", v)} />
+              <div className="mt-8">
+                <h3 className="text-[16px] font-medium text-primary mb-4">Розділи</h3>
+                {(sectionData.sections as { heading: string; content: string }[] || []).map((section, i) => (
+                  <div key={i} className="ml-4 mb-6 p-4 border-l-2 border-secondary/30 space-y-3">
+                    <span className="text-[12px] text-secondary font-bold uppercase">Розділ {i + 1}</span>
+                    <Field label="Заголовок" value={section.heading} onChange={(v) => updateArrayItem("terms", "sections", i, "heading", v)} />
+                    <TextArea label="Текст" value={section.content} onChange={(v) => updateArrayItem("terms", "sections", i, "content", v)} />
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
