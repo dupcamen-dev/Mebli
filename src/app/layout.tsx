@@ -7,6 +7,7 @@ import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { SplashLoader } from "@/components/layout/SplashLoader";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { AuthProvider } from "@/components/layout/AuthProvider";
+import { content } from "@/lib/content";
 
 const inter = Inter({
   variable: "--font-body",
@@ -30,25 +31,14 @@ const greatVibes = Great_Vibes({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mebli Chortkiv — меблі за вашим характером",
-    template: "%s | Mebli Chortkiv",
+    default: content.seo.title,
+    template: `%s | ${content.navbar.brand}`,
   },
-  description:
-    "Виготовлення преміальних меблів за індивідуальним проектом у Чорткові. Сучасний мінімалізм, натуральне дерево, бездоганна якість.",
-  keywords: [
-    "меблі на замовлення",
-    "Чортків",
-    "меблі Чортків",
-    "кухні на замовлення",
-    "меблі для вітальні",
-    "індивідуальні меблі",
-    "деревяні меблі",
-    "преміум меблі",
-  ],
+  description: content.seo.description,
+  keywords: content.seo.keywords.split(", "),
   openGraph: {
-    title: "Mebli Chortkiv — меблі за вашим характером",
-    description:
-      "Виготовлення преміальних меблів за індивідуальним проектом. Мінімалізм та якість.",
+    title: content.seo.title,
+    description: content.seo.description,
     locale: "uk_UA",
     type: "website",
   },

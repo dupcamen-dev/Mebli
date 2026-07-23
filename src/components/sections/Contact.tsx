@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { content } from "@/lib/content";
 
 export function Contact() {
+  const c = content.contact;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -46,46 +48,43 @@ export function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           <div>
             <span className="text-[15px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-secondary mb-5 block">
-              Контакти
+              {c.subtitle}
             </span>
             <h2 className="font-[family-name:var(--font-headline)] text-[36px] md:text-[48px] font-medium leading-[1.15] tracking-[-0.01em] text-primary mb-7">
-              Зв&apos;яжіться
-              <br />
-              з нами
+              {c.heading}
             </h2>
             <p className="text-[16px] leading-[1.7] text-on-surface-variant mb-14 max-w-md">
-              Розкажіть нам про свій проект, і ми зв&apos;яжемося з вами для
-              безкоштовної консультації.
+              {c.description}
             </p>
 
             <div className="space-y-10">
               <div>
                 <span className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
-                  Адреса
+                  {c.addressLabel}
                 </span>
                 <p className="text-[16px] leading-[1.6] text-on-surface">
-                  м. Чортків, Тернопільська область
+                  {c.address}
                 </p>
               </div>
               <div>
                 <span className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
-                  Телефон
+                  {c.phoneLabel}
                 </span>
                 <a href="tel:+380000000000" className="text-[16px] leading-[1.6] text-on-surface hover:text-secondary transition-colors duration-300">
-                  +38 (00) 000-00-00
+                  {c.phone}
                 </a>
               </div>
               <div>
                 <span className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
-                  Email
+                  {c.emailLabel}
                 </span>
                 <a href="mailto:info@mebli-chortkiv.ua" className="text-[16px] leading-[1.6] text-on-surface hover:text-secondary transition-colors duration-300">
-                  info@mebli-chortkiv.ua
+                  {c.email}
                 </a>
               </div>
               <div>
                 <span className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-4">
-                  Соціальні мережі
+                  {c.socialLabel}
                 </span>
                 <div className="flex gap-3">
                   <a href="#" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center border border-outline-variant hover:border-secondary hover:bg-secondary/10 transition-colors" aria-label="Instagram">
@@ -107,14 +106,14 @@ export function Contact() {
               <div className="flex flex-col items-center justify-center h-full text-center py-12">
                 <span className="material-symbols-outlined text-[56px] text-secondary mb-6">check_circle</span>
                 <h3 className="font-[family-name:var(--font-headline)] text-[24px] font-medium text-primary mb-3">
-                  Заявку надіслано!
+                  {c.successHeading}
                 </h3>
                 <p className="text-[15px] text-on-surface-variant mb-6">
-                  Ми зв&apos;яжемося з вами найближчим часом.
+                  {c.successDescription}
                 </p>
                 <div className="bg-surface border border-outline-variant/50 rounded-lg px-6 py-4 mb-8">
                   <span className="text-[12px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-1">
-                    Номер замовлення
+                    {c.successOrderLabel}
                   </span>
                   <span className="text-[20px] font-bold font-[family-name:var(--font-headline)] text-primary">
                     {orderId}
@@ -124,14 +123,14 @@ export function Contact() {
                   href={`/track?id=${orderId}`}
                   className="text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] text-secondary hover:text-secondary/80 transition-colors"
                 >
-                  Відстежити замовлення →
+                  {c.successTrackLink}
                 </a>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
                   <label htmlFor="contact-name" className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
-                    Ім&apos;я
+                    {c.formNameLabel}
                   </label>
                   <input
                     type="text"
@@ -140,12 +139,12 @@ export function Contact() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300"
-                    placeholder="Ваше ім'я"
+                    placeholder={c.formNamePlaceholder}
                   />
                 </div>
                 <div>
                   <label htmlFor="contact-phone" className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
-                    Телефон
+                    {c.formPhoneLabel}
                   </label>
                   <input
                     type="tel"
@@ -154,12 +153,12 @@ export function Contact() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300"
-                    placeholder="+38 (___) ___-__-__"
+                    placeholder={c.formPhonePlaceholder}
                   />
                 </div>
                 <div>
                   <label htmlFor="contact-email" className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
-                    Email (необов&apos;язково)
+                    {c.formEmailLabel}
                   </label>
                   <input
                     type="email"
@@ -167,12 +166,12 @@ export function Contact() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300"
-                    placeholder="your@email.com"
+                    placeholder={c.formEmailPlaceholder}
                   />
                 </div>
                 <div>
                   <label htmlFor="contact-message" className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-3">
-                    Повідомлення
+                    {c.formMessageLabel}
                   </label>
                   <textarea
                     id="contact-message"
@@ -181,7 +180,7 @@ export function Contact() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300 resize-none"
-                    placeholder="Розкажіть про ваш проект..."
+                    placeholder={c.formMessagePlaceholder}
                   />
                 </div>
                 <button
@@ -189,11 +188,11 @@ export function Contact() {
                   disabled={status === "sending"}
                   className="w-full bg-secondary text-on-secondary px-10 py-5 text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] hover:bg-secondary/85 transition-all duration-300 mt-4 rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.15)] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {status === "sending" ? "Надсилаємо..." : "Надіслати заявку"}
+                  {status === "sending" ? c.formSubmitting : c.formSubmit}
                 </button>
                 {status === "error" && (
                   <p className="text-[14px] text-red-600 text-center">
-                    Помилка надсилання. Перевірте налаштування Telegram бота в адмін-панелі.
+                    {c.formError}
                   </p>
                 )}
               </form>

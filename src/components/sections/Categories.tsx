@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { categories } from "@/lib/categories";
+import { content } from "@/lib/content";
 
 export function Categories() {
+  const c = content.categories;
   return (
     <section
       className="py-28 md:py-44 bg-green-section text-green-section-on"
@@ -10,14 +12,13 @@ export function Categories() {
       <div className="max-w-[1600px] mx-auto px-5 md:px-8">
         <div className="max-w-xl mb-20">
           <span className="text-[15px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-tertiary mb-5 block">
-            Категорії
+            {c.subtitle}
           </span>
           <h2 className="font-[family-name:var(--font-headline)] text-[36px] md:text-[48px] font-medium leading-[1.15] tracking-[-0.01em] text-white mb-5">
-            Наші роботи
+            {c.heading}
           </h2>
           <p className="text-[16px] leading-[1.7] text-green-section-muted">
-            Оберіть категорію, щоб переглянути наші роботи та отримати
-            натхнення для вашого простору.
+            {c.description}
           </p>
         </div>
 

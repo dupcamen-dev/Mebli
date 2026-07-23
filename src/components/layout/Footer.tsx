@@ -1,25 +1,19 @@
 import Link from "next/link";
-
-const categories = [
-  { href: "#categories", label: "Кухні" },
-  { href: "#categories", label: "Ванні кімнати" },
-  { href: "#categories", label: "Вітальні" },
-  { href: "#categories", label: "Спальні" },
-  { href: "#categories", label: "Офіси" },
-];
+import { content } from "@/lib/content";
+import { categories } from "@/lib/categories";
 
 export function Footer() {
+  const c = content.footer;
   return (
     <footer className="w-full mt-auto bg-inverse-surface text-inverse-on-surface">
       <div className="max-w-[1600px] mx-auto px-5 md:px-8 py-20 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-14">
           <div className="md:col-span-5">
             <div className="font-[family-name:var(--font-headline)] text-[26px] font-medium text-white mb-5">
-              Mebli Chortkiv
+              {c.brand}
             </div>
             <p className="text-[16px] leading-[1.7] text-inverse-on-surface/60 max-w-sm mb-10">
-              Виготовлення меблів за індивідуальним проектом. Створюємо простір,
-              який відображає вашу унікальність.
+              {c.description}
             </p>
             <div className="flex gap-3">
               <a
@@ -54,16 +48,16 @@ export function Footer() {
 
           <div className="md:col-span-3">
             <span className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-white/40 block mb-7">
-              Категорії
+              {c.categoriesHeading}
             </span>
             <ul className="flex flex-col gap-4">
               {categories.map((cat) => (
-                <li key={cat.label}>
+                <li key={cat.slug}>
                   <Link
-                    href={cat.href}
+                    href={`/categories/${cat.slug}`}
                     className="text-[16px] leading-[1.6] text-inverse-on-surface/60 hover:text-white transition-colors duration-300"
                   >
-                    {cat.label}
+                    {cat.title}
                   </Link>
                 </li>
               ))}
@@ -72,35 +66,35 @@ export function Footer() {
 
           <div className="md:col-span-4">
             <span className="text-[13px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-white/40 block mb-7">
-              Навігація
+              {c.navigationHeading}
             </span>
             <ul className="flex flex-col gap-4 mb-10">
               <li>
                 <a href="#reviews" className="text-[16px] text-inverse-on-surface/60 hover:text-white transition-colors duration-300">
-                  Відгуки
+                  {content.navbar.links[2]?.label || "Відгуки"}
                 </a>
               </li>
               <li>
                 <a href="#process" className="text-[16px] text-inverse-on-surface/60 hover:text-white transition-colors duration-300">
-                  Процес
+                  {content.navbar.links[0]?.label || "Процес"}
                 </a>
               </li>
               <li>
                 <a href="#contact" className="text-[16px] text-inverse-on-surface/60 hover:text-white transition-colors duration-300">
-                  Контакти
+                  {content.navbar.links[3]?.label || "Контакти"}
                 </a>
               </li>
               <li>
                 <Link href="/track" className="text-[16px] text-inverse-on-surface/60 hover:text-white transition-colors duration-300">
-                  Відстежити замовлення
+                  {c.tracking}
                 </Link>
               </li>
             </ul>
             <p className="text-[14px] text-inverse-on-surface/30">
-              &copy; {new Date().getFullYear()} Mebli Chortkiv. Всі права захищені.
+              &copy; {new Date().getFullYear()} {c.brand}. Всі права захищені.
             </p>
             <p className="text-[14px] text-inverse-on-surface/30 mt-3">
-              <a href="https://millionpixels.dev" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">Designed &amp; Built by Million Pixels</a>
+              <a href="https://millionpixels.dev" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">{c.credit}</a>
             </p>
           </div>
         </div>

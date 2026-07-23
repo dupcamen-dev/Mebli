@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { content } from "@/lib/content";
 
 export function ScrollToTop() {
+  const c = content.scrollToTop;
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -21,7 +23,7 @@ export function ScrollToTop() {
           if (el) el.scrollIntoView({ behavior: "smooth" });
         }}
         className="w-12 h-12 flex items-center justify-center bg-secondary text-on-secondary shadow-[0_4px_20px_rgba(0,0,0,0.25)] rounded-full hover:bg-secondary/85 transition-all duration-300 cursor-pointer"
-        aria-label="Контакти"
+        aria-label={c.contactsLabel}
       >
         <span className="material-symbols-outlined text-[22px]">
           chat
@@ -30,7 +32,7 @@ export function ScrollToTop() {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="w-12 h-12 flex items-center justify-center bg-tertiary text-on-tertiary shadow-[0_4px_20px_rgba(0,0,0,0.25)] rounded-full hover:bg-tertiary/85 transition-all duration-300 cursor-pointer"
-        aria-label="Нагору"
+        aria-label={c.topLabel}
       >
         <span className="material-symbols-outlined text-[22px]">
           arrow_upward
