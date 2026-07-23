@@ -1,6 +1,7 @@
 import contentData from "../../data/content.json";
 
 export interface ContentData {
+  [key: string]: unknown;
   hero: {
     subtitle: string;
     heading1: string;
