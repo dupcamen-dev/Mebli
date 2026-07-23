@@ -45,19 +45,19 @@ export default function AdminContentPage() {
   };
 
   const handleSeed = async () => {
-    if (!confirm("Скинути всі дані з файлу? Поточні зміни в KV будуть перезаписані.")) return;
+    if (!confirm("Оновити дані з файлу? Ваші зміни збережуться, але нові поля з файлу будуть додані.")) return;
     setSaving(true);
     setMessage("");
     try {
       const res = await fetch("/api/admin/seed", { method: "POST" });
       if (res.ok) {
-        setMessage("Дані скинуті з файлу! Перезавантажте сторінку.");
+        setMessage("Дані оновлено! Перезавантажте сторінку.");
         setTimeout(() => window.location.reload(), 2000);
       } else {
-        setMessage("Помилка скидання");
+        setMessage("Помилка оновлення");
       }
     } catch {
-      setMessage("Помилка скидання");
+      setMessage("Помилка оновлення");
     } finally {
       setSaving(false);
     }
@@ -322,7 +322,7 @@ export default function AdminContentPage() {
               disabled={saving}
               className="px-6 py-3 rounded-lg text-[14px] font-medium bg-red-50 text-red-600 border border-red-200 hover:bg-red-100 transition-all cursor-pointer"
             >
-              Скинути дані з файлу
+              Оновити з файлу
             </button>
             {hasChanges && (
               <span className="text-[13px] text-secondary font-medium">Є незбережені зміни</span>
