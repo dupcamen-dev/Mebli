@@ -92,6 +92,14 @@ export function Footer() {
             <p className="text-[14px] text-inverse-on-surface/30">
               &copy; {new Date().getFullYear()} {c.brand}. Всі права захищені.
             </p>
+            <div className="flex gap-4 mt-3">
+              <Link href="/privacy" className="text-[13px] text-inverse-on-surface/30 hover:text-white transition-colors duration-300">
+                Політика конфіденційності
+              </Link>
+              <Link href="/terms" className="text-[13px] text-inverse-on-surface/30 hover:text-white transition-colors duration-300">
+                Умови використання
+              </Link>
+            </div>
             <p className="text-[14px] text-inverse-on-surface/30 mt-3">
               <a href="https://millionpixels.dev" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">{c.credit}</a>
             </p>
