@@ -38,6 +38,10 @@ export const metadata: Metadata = {
   description: content.seo.description,
   keywords: content.seo.keywords.split(", "),
   metadataBase: new URL("https://mebli-chortkiv.vercel.app"),
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: content.seo.title,
     description: content.seo.description,
