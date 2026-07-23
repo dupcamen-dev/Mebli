@@ -349,6 +349,7 @@ function Field({ label, value, onChange }: { label: string; value: string; onCha
         {label}
       </label>
       <input
+        key={value || ""}
         type="text"
         defaultValue={value || ""}
         onBlur={(e) => {
@@ -367,6 +368,7 @@ function TextArea({ label, value, onChange }: { label: string; value: string; on
         {label}
       </label>
       <textarea
+        key={value || ""}
         defaultValue={value || ""}
         onBlur={(e) => {
           if (e.target.value !== value) onChange(e.target.value);
