@@ -11,28 +11,19 @@ export function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-  const [orderId, setOrderId] = useState<string | null>(null);
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-
-    const id = `MC-${Date.now().toString(36).toUpperCase()}`;
 
     try {
       const res = await fetch("/api/order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, email, message, orderId: id }),
+        body: JSON.stringify({ name, phone, email, message }),
       });
 
       if (!res.ok) throw new Error("Failed");
 
-      const orders = JSON.parse(localStorage.getItem("orders") || "[]");
-      orders.unshift({ id, name, phone, email, message, status: "new", createdAt: new Date().toISOString() });
-      localStorage.setItem("orders", JSON.stringify(orders));
-
-      setOrderId(id);
       setStatus("sent");
       setName("");
       setPhone("");
@@ -116,23 +107,9 @@ export function Contact() {
                 <h3 className="font-[family-name:var(--font-headline)] text-[24px] font-medium text-primary mb-3">
                   {c.successHeading}
                 </h3>
-                <p className="text-[15px] text-on-surface-variant mb-6">
+                <p className="text-[15px] text-on-surface-variant">
                   {c.successDescription}
                 </p>
-                <div className="bg-surface border border-outline-variant/50 rounded-lg px-6 py-4 mb-8">
-                  <span className="text-[12px] font-bold uppercase tracking-[0.2em] font-[family-name:var(--font-body)] text-on-surface-variant block mb-1">
-                    {c.successOrderLabel}
-                  </span>
-                  <span className="text-[20px] font-bold font-[family-name:var(--font-headline)] text-primary">
-                    {orderId}
-                  </span>
-                </div>
-                <a
-                  href={`/track?id=${orderId}`}
-                  className="text-[14px] font-bold uppercase tracking-[0.15em] font-[family-name:var(--font-body)] text-secondary hover:text-secondary/80 transition-colors"
-                >
-                  {c.successTrackLink}
-                </a>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8">

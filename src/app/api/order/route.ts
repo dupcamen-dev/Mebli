@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, phone, email, message, orderId } = body;
+    const { name, phone, email, message } = body;
 
     if (!name || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -19,7 +19,6 @@ export async function POST(req: NextRequest) {
     const text = [
       `🏠 *Нове замовлення — Mebli Chortkiv*`,
       ``,
-      `📋 *Номер:* \`${orderId || "—"}\``,
       `👤 *Ім'я:* ${name}`,
       `📞 *Телефон:* ${phone}`,
       email ? `📧 *Email:* ${email}` : null,
