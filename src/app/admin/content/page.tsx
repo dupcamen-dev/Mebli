@@ -371,6 +371,13 @@ export default function AdminContentPage() {
 }
 
 function Field({ label, value, onChange }: { label: string; value: string; onChange: (v: string) => void }) {
+  const [local, setLocal] = useState(value || "");
+  const [dirty, setDirty] = useState(false);
+
+  useEffect(() => {
+    if (!dirty) setLocal(value || "");
+  }, [value, dirty]);
+
   return (
     <div>
       <label className="block text-[12px] font-medium uppercase tracking-wider text-on-surface-variant mb-1.5">
@@ -378,9 +385,9 @@ function Field({ label, value, onChange }: { label: string; value: string; onCha
       </label>
       <input
         type="text"
-        value={value || ""}
-        onChange={(e) => onChange(e.target.value)}
-        onBlur={(e) => onChange(e.target.value)}
+        value={local}
+        onChange={(e) => { setLocal(e.target.value); setDirty(true); }}
+        onBlur={() => { if (dirty) { onChange(local); setDirty(false); } }}
         className="w-full px-4 py-2.5 bg-white/80 border border-outline-variant/50 rounded-lg text-[14px] text-primary focus:outline-none focus:border-secondary transition-colors"
       />
     </div>
@@ -388,15 +395,22 @@ function Field({ label, value, onChange }: { label: string; value: string; onCha
 }
 
 function TextArea({ label, value, onChange }: { label: string; value: string; onChange: (v: string) => void }) {
+  const [local, setLocal] = useState(value || "");
+  const [dirty, setDirty] = useState(false);
+
+  useEffect(() => {
+    if (!dirty) setLocal(value || "");
+  }, [value, dirty]);
+
   return (
     <div>
       <label className="block text-[12px] font-medium uppercase tracking-wider text-on-surface-variant mb-1.5">
         {label}
       </label>
       <textarea
-        value={value || ""}
-        onChange={(e) => onChange(e.target.value)}
-        onBlur={(e) => onChange(e.target.value)}
+        value={local}
+        onChange={(e) => { setLocal(e.target.value); setDirty(true); }}
+        onBlur={() => { if (dirty) { onChange(local); setDirty(false); } }}
         rows={3}
         className="w-full px-4 py-2.5 bg-white/80 border border-outline-variant/50 rounded-lg text-[14px] text-primary focus:outline-none focus:border-secondary transition-colors resize-y"
       />
