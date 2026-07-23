@@ -62,13 +62,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               <span className="material-symbols-outlined text-[20px]">arrow_back</span>
               До категорій
             </Link>
-            <span className="text-outline-variant">|</span>
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-[14px] font-medium text-on-surface-variant hover:text-secondary transition-colors"
-            >
-              На сайт
-            </Link>
           </div>
         </div>
 
