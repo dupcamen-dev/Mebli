@@ -24,7 +24,7 @@ export default function AdminContentPage() {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 
-  const sectionData = ((content as Record<string, unknown>)[activeSection] || {}) as Record<string, unknown>;
+  const sectionData = ((content as unknown as Record<string, unknown>)[activeSection] || {}) as Record<string, unknown>;
 
   const handleSave = async () => {
     setSaving(true);
