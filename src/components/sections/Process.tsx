@@ -1,4 +1,6 @@
-import { content } from "@/lib/content";
+"use client";
+
+import { useContent } from "@/contexts/ContentContext";
 
 const steps = [
   { icon: "call" },
@@ -10,6 +12,7 @@ const steps = [
 ];
 
 export function Process() {
+  const { content } = useContent();
   const c = content.process;
   return (
     <section

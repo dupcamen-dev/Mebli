@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { categories } from "@/lib/categories";
-import { content } from "@/lib/content";
+import { useContent } from "@/contexts/ContentContext";
 
 export function Categories() {
+  const { content } = useContent();
   const c = content.categories;
   return (
     <section

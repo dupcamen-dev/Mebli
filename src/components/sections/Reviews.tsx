@@ -1,6 +1,9 @@
-import { content } from "@/lib/content";
+"use client";
+
+import { useContent } from "@/contexts/ContentContext";
 
 export function Reviews() {
+  const { content } = useContent();
   const c = content.reviews;
   return (
     <>

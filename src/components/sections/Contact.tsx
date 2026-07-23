@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { content } from "@/lib/content";
+import { useContent } from "@/contexts/ContentContext";
 
 export function Contact() {
+  const { content } = useContent();
   const c = content.contact;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");

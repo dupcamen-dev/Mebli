@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { content } from "@/lib/content";
+import { useContent } from "@/contexts/ContentContext";
 
 export function ScrollToTop() {
+  const { content } = useContent();
   const c = content.scrollToTop;
   const [visible, setVisible] = useState(false);
 

@@ -1,8 +1,9 @@
 "use client";
 
-import { content } from "@/lib/content";
+import { useContent } from "@/contexts/ContentContext";
 
 export function Hero() {
+  const { content } = useContent();
   const c = content.hero;
   return (
     <section className="relative w-full h-[100svh] flex items-center justify-center overflow-hidden">

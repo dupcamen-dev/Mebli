@@ -4,9 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { content } from "@/lib/content";
+import { useContent } from "@/contexts/ContentContext";
 
 export function Navbar() {
+  const { content } = useContent();
   const c = content.navbar;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

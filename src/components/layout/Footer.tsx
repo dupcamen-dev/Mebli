@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import { content } from "@/lib/content";
+import { useContent } from "@/contexts/ContentContext";
 import { categories } from "@/lib/categories";
 
 export function Footer() {
+  const { content } = useContent();
   const c = content.footer;
   return (
     <footer className="w-full mt-auto bg-inverse-surface text-inverse-on-surface">

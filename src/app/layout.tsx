@@ -7,6 +7,7 @@ import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { SplashLoader } from "@/components/layout/SplashLoader";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { AuthProvider } from "@/components/layout/AuthProvider";
+import { ContentProvider } from "@/contexts/ContentContext";
 import { content } from "@/lib/content";
 
 const inter = Inter({
@@ -58,6 +59,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        <ContentProvider>
         <AuthProvider>
         <SplashLoader />
         <Navbar />
@@ -66,6 +68,7 @@ export default function RootLayout({
         <ScrollToTop />
         <CookieConsent />
         </AuthProvider>
+        </ContentProvider>
       </body>
     </html>
   );
