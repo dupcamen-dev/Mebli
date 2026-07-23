@@ -84,7 +84,6 @@ export const categories: Category[] = [
       { src: "/gallery/vitalni/vitalni-6.jpg", alt: "Комод — фронтальний вигляд" },
       { src: "/gallery/vitalni/vitalni-7.jpg", alt: "Настінні полиці та комод з робочою зоною" },
       { src: "/gallery/vitalni/vitalni-8.jpg", alt: "Система настінних полиць різних розмірів" },
-      { src: "/gallery/vitalni/vitalni-w2.jpg", alt: "ТВ-зона з полицями та шафами" },
       { src: "/gallery/vitalni/vitalni-w3.jpg", alt: "Класична ТВ-тумба" },
       { src: "/gallery/vitalni/vitalni-w4.jpg", alt: "ТВ-зона — загальний вигляд" },
       { src: "/gallery/vitalni/vitalni-w5.jpg", alt: "ТВ-зона з підсвіткою" },
@@ -140,6 +139,7 @@ export const categories: Category[] = [
       { src: "/gallery/spalni/spalni-w27.jpg", alt: "Шафа — деталі інтер'єру" },
       { src: "/gallery/spalni/spalni-w28.jpg", alt: "Спальня з підсвіткою" },
       { src: "/gallery/spalni/spalni-w29.jpg", alt: "Меблі для дитячої кімнати" },
+      { src: "/gallery/spalni/spalni-w30.jpg", alt: "ТВ-зона з полицями та шафами" },
     ],
   },
   {
