@@ -45,7 +45,16 @@
       { "src": "/gallery/kuhni/kuhni-w37.jpg", "alt": "Кухня — деталі інтер'єру" },
       { "src": "/gallery/kuhni/kuhni-w38.jpg", "alt": "Кухня з підсвіткою" },
       { "src": "/gallery/kuhni/kuhni-w39.jpg", "alt": "Кухонні фасади" },
-      { "src": "/gallery/kuhni/kuhni-w40.jpg", "alt": "Кухня — загальний вигляд" }
+      { "src": "/gallery/kuhni/kuhni-w40.jpg", "alt": "Кухня — загальний вигляд" },
+      { "src": "/gallery/kuhni/kuhni-w41.jpg", "alt": "Кухня" },
+      { "src": "/gallery/kuhni/kuhni-w42.jpg", "alt": "Кухня" },
+      { "src": "/gallery/kuhni/kuhni-w43.jpg", "alt": "Кухня" },
+      { "src": "/gallery/kuhni/kuhni-w44.jpg", "alt": "Кухня" },
+      { "src": "/gallery/kuhni/kuhni-w45.jpg", "alt": "Кухня" },
+      { "src": "/gallery/kuhni/kuhni-w46.jpg", "alt": "Кухня" },
+      { "src": "/gallery/kuhni/kuhni-w47.jpg", "alt": "Кухня" },
+      { "src": "/gallery/kuhni/kuhni-w48.jpg", "alt": "Кухня" },
+      { "src": "/gallery/kuhni/kuhni-w49.jpg", "alt": "Кухня" }
     ]
   },
   {
@@ -61,7 +70,9 @@
       { "src": "/gallery/vanni/vanni-5.jpg", "alt": "Ванна кімната з круглим дзеркалом та LED-підсвіткою" },
       { "src": "/gallery/vanni/vanni-6.jpg", "alt": "Тумба під раковину з дерев'яними полицями" },
       { "src": "/gallery/vanni/vanni-7.jpg", "alt": "Дерев'яні полички з підсвіткою над раковиною" },
-      { "src": "/gallery/vanni/vanni-8.jpg", "alt": "Ванна кімната з душовою зоною" }
+      { "src": "/gallery/vanni/vanni-8.jpg", "alt": "Ванна кімната з душовою зоною" },
+      { "src": "/gallery/vanni/vanni-9.jpg", "alt": "Ванна кімната" },
+      { "src": "/gallery/vanni/vanni-10.jpg", "alt": "Ванна кімната" }
     ]
   },
   {
@@ -87,7 +98,13 @@
       { "src": "/gallery/vitalni/vitalni-w26.jpg", "alt": "Вітальня з комодом" },
       { "src": "/gallery/vitalni/vitalni-w27.jpg", "alt": "Класична шафа з фасадами-решітками" },
       { "src": "/gallery/vitalni/vitalni-w28.jpg", "alt": "Шафа з латунними ручками" },
-      { "src": "/gallery/vitalni/vitalni-w29.jpg", "alt": "Меблі для вітальні" }
+      { "src": "/gallery/vitalni/vitalni-w29.jpg", "alt": "Меблі для вітальні" },
+      { "src": "/gallery/vitalni/vitalni-w30.jpg", "alt": "Вітальня" },
+      { "src": "/gallery/vitalni/vitalni-w31.jpg", "alt": "Вітальня" },
+      { "src": "/gallery/vitalni/vitalni-w32.jpg", "alt": "Вітальня" },
+      { "src": "/gallery/vitalni/vitalni-w33.jpg", "alt": "Вітальня" },
+      { "src": "/gallery/vitalni/vitalni-w34.jpg", "alt": "Вітальня" },
+      { "src": "/gallery/vitalni/vitalni-w35.jpg", "alt": "Вітальня" }
     ]
   },
   {
@@ -124,7 +141,13 @@
       { "src": "/gallery/spalni/spalni-w27.jpg", "alt": "Шафа — деталі інтер'єру" },
       { "src": "/gallery/spalni/spalni-w28.jpg", "alt": "Спальня з підсвіткою" },
       { "src": "/gallery/spalni/spalni-w29.jpg", "alt": "Меблі для дитячої кімнати" },
-      { "src": "/gallery/spalni/spalni-w30.jpg", "alt": "ТВ-зона з полицями та шафами" }
+      { "src": "/gallery/spalni/spalni-w30.jpg", "alt": "ТВ-зона з полицями та шафами" },
+      { "src": "/gallery/spalni/spalni-w31.jpg", "alt": "Спальня" },
+      { "src": "/gallery/spalni/spalni-w32.jpg", "alt": "Спальня" },
+      { "src": "/gallery/spalni/spalni-w33.jpg", "alt": "Спальня" },
+      { "src": "/gallery/spalni/spalni-w34.jpg", "alt": "Спальня" },
+      { "src": "/gallery/spalni/spalni-w35.jpg", "alt": "Спальня" },
+      { "src": "/gallery/spalni/spalni-w36.jpg", "alt": "Спальня" }
     ]
   },
   {
