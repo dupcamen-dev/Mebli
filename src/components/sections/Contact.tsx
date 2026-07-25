@@ -161,7 +161,6 @@ export function Contact() {
                   <textarea
                     id="contact-message"
                     rows={4}
-                    required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="w-full border-b border-outline-variant bg-transparent px-0 py-3.5 text-[16px] leading-[1.6] text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-colors duration-300 resize-none"

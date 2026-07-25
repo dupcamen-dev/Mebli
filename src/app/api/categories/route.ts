@@ -9,12 +9,15 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
+    const data = await readFile(CATEGORIES_FILE, "utf-8");
+    const fileCategories = JSON.parse(data);
+
     const kv = await kvGetCategories();
-    if (kv) {
+    if (kv && Array.isArray(kv)) {
       return NextResponse.json(kv, { headers: { "Cache-Control": "no-store" } });
     }
-    const data = await readFile(CATEGORIES_FILE, "utf-8");
-    return NextResponse.json(JSON.parse(data), { headers: { "Cache-Control": "no-store" } });
+
+    return NextResponse.json(fileCategories, { headers: { "Cache-Control": "no-store" } });
   } catch {
     return NextResponse.json({ error: "Categories not available" }, { status: 500 });
   }
