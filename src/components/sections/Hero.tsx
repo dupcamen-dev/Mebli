@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section className="relative w-full h-[100svh] flex items-center justify-center overflow-hidden">
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat scale-105"
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat scale-105 max-md:bg-scroll md:bg-fixed"
         style={{
           backgroundImage:
             "url('/hero.webp')",
