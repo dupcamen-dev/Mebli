@@ -10,11 +10,13 @@ export async function POST(req: NextRequest) {
     }
 
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
+    const chatIdsRaw = process.env.TELEGRAM_CHAT_ID;
 
-    if (!botToken || !chatId) {
+    if (!botToken || !chatIdsRaw) {
       return NextResponse.json({ error: "Telegram not configured" }, { status: 500 });
     }
+
+    const chatIds = chatIdsRaw.split(",").map((id) => id.trim()).filter(Boolean);
 
     const text = [
       `🏠 *Нове замовлення — Mebli Chortkiv*`,
@@ -29,22 +31,24 @@ export async function POST(req: NextRequest) {
       .filter(Boolean)
       .join("\n");
 
-    const response = await fetch(
-      `https://api.telegram.org/bot${botToken}/sendMessage`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text,
-          parse_mode: "Markdown",
-        }),
-      }
+    const results = await Promise.allSettled(
+      chatIds.map((chatId) =>
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text,
+            parse_mode: "Markdown",
+          }),
+        })
+      )
     );
 
-    if (!response.ok) {
-      const err = await response.text();
-      return NextResponse.json({ error: "Telegram API error", details: err }, { status: 500 });
+    const anySuccess = results.some((r) => r.status === "fulfilled" && r.value.ok);
+
+    if (!anySuccess) {
+      return NextResponse.json({ error: "Telegram API error" }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
