@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
@@ -29,6 +29,10 @@ const greatVibes = Great_Vibes({
   weight: ["400"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  maximumScale: 1,
+};
 
 export const metadata: Metadata = {
   title: {
