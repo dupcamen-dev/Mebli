@@ -8,20 +8,19 @@ export function Hero() {
   return (
     <section className="relative w-full h-[100svh] flex items-center justify-center max-md:overflow-hidden">
       <div
-        className="absolute inset-0 w-full h-[120%] bg-cover bg-center bg-no-repeat hidden md:block"
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat hidden md:block"
         style={{
-          backgroundImage: "url('/hero.webp')",
+          backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('/hero.webp')",
           backgroundAttachment: "fixed",
-          top: "-10%",
+          backgroundSize: "cover",
         }}
       />
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat md:hidden"
         style={{
-          backgroundImage: "url('/hero.webp')",
+          backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('/hero.webp')",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
 
       <div className="relative z-10 max-w-[1600px] mx-auto px-5 md:px-8 text-center">
         <div className="animate-fade-up">
