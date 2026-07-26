@@ -1,24 +1,34 @@
 "use client";
 
 import { useContent } from "@/contexts/ContentContext";
+import { useEffect, useRef, useState } from "react";
 
 export function Hero() {
   const { content } = useContent();
   const c = content.hero;
+  const heroRef = useRef<HTMLElement>(null);
+  const [heroVisible, setHeroVisible] = useState(true);
+
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroVisible(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative w-full h-[100svh] flex items-center justify-center max-md:overflow-hidden">
+    <section ref={heroRef} className="relative w-full h-[100svh] flex items-center justify-center max-md:overflow-hidden">
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat hidden md:block"
+        className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0 transition-opacity duration-300"
         style={{
           backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('/hero.webp')",
-          backgroundAttachment: "fixed",
           backgroundSize: "cover",
-        }}
-      />
-      <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat md:hidden"
-        style={{
-          backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('/hero.webp')",
+          opacity: heroVisible ? 1 : 0,
+          pointerEvents: "none",
         }}
       />
 

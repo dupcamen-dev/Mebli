@@ -16,7 +16,7 @@ export function Process() {
   const c = content.process;
   return (
     <section
-      className="py-28 md:py-44 max-w-[1600px] mx-auto px-5 md:px-8"
+      className="relative py-28 md:py-44 max-w-[1600px] mx-auto px-5 md:px-8"
       id="process"
     >
       <div className="text-center mb-24">
