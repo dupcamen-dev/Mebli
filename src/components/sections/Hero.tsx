@@ -6,14 +6,13 @@ export function Hero() {
   const { content } = useContent();
   const c = content.hero;
   return (
-    <section className="relative w-full h-[100svh] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-[100svh] flex items-center justify-center max-md:overflow-hidden">
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat hidden md:block"
+        className="absolute inset-0 w-full h-[120%] bg-cover bg-center bg-no-repeat hidden md:block"
         style={{
           backgroundImage: "url('/hero.webp')",
           backgroundAttachment: "fixed",
-          transform: "scale(1.05)",
-          transformOrigin: "center center",
+          top: "-10%",
         }}
       />
       <div
