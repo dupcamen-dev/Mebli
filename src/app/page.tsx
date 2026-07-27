@@ -8,10 +8,12 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Process />
-      <Categories />
-      <Reviews />
-      <Contact />
+      <div className="relative z-10 bg-background">
+        <Process />
+        <Categories />
+        <Reviews />
+        <Contact />
+      </div>
     </>
   );
 }

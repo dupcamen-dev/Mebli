@@ -114,7 +114,7 @@ export default function RootLayout({
         <AuthProvider>
         <SplashLoader />
         <Navbar />
-        <main className="flex-grow relative bg-background">{children}</main>
+        <main className="flex-grow">{children}</main>
         <Footer />
         <ScrollToTop />
         <CookieConsent />
