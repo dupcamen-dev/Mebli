@@ -69,7 +69,7 @@ export function Navbar() {
             href="/"
             className="relative z-[61]"
           >
-            <img src="/logo.webp" alt="Mebli Chortkiv" className="h-full max-h-[70px] w-auto py-1.5" />
+            <img src="/logo.webp" alt="Mebli Chortkiv" className="h-full max-h-[76px] w-auto py-1.5" />
           </Link>
         </div>
 
