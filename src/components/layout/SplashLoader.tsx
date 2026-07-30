@@ -31,7 +31,7 @@ export function SplashLoader() {
   return (
     <div className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-background">
       <div className="flex flex-col items-center gap-8">
-        <img src="/logo.webp" alt="Mebli Chortkiv" className="h-16 md:h-20 w-auto" />
+        <img src="/logo.webp" alt="Mebli Chortkiv" className="h-28 md:h-36 w-auto" />
 
         <div className="w-[240px] h-[2px] bg-surface-container-high overflow-hidden">
           <div

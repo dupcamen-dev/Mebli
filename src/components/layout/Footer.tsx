@@ -13,7 +13,7 @@ export function Footer() {
       <div className="max-w-[1600px] mx-auto px-5 md:px-8 py-20 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-14">
           <div className="md:col-span-5">
-            <img src="/logo.webp" alt="Mebli Chortkiv" className="h-9 md:h-11 w-auto mb-5" />
+            <img src="/logo.webp" alt="Mebli Chortkiv" className="h-16 md:h-24 w-auto mb-5" />
             <p className="text-[16px] leading-[1.7] text-inverse-on-surface/60 max-w-sm mb-10">
               {c.description}
             </p>
