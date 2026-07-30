@@ -67,11 +67,9 @@ export function Navbar() {
           )}
           <Link
             href="/"
-            className={`font-[family-name:var(--font-headline)] text-[24px] font-semibold tracking-tight transition-colors duration-500 relative z-[61] ${
-              mobileOpen ? "text-white" : showScrolled ? "text-primary" : "text-white"
-            }`}
+            className="relative z-[61]"
           >
-            {c.brand}
+            <img src="/logo.webp" alt="Mebli Chortkiv" className="h-9 md:h-11 w-auto" />
           </Link>
         </div>
 
